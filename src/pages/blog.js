@@ -7,23 +7,25 @@ import SEO from "../components/seo"
 const BlogPage = ({ data }) => {
   const _renderBlogPosts = (edges) => {
     return edges.map(({ node }) => (
-      <div key={node.id}>
-        <h3>
-          {node.frontmatter.title}
-          <span>
-            --- {node.frontmatter.date}
-          </span>
-        </h3>
-        <p>
-          {node.excerpt}
-        </p>
-        <p>
-          {node.words} words
-        </p>
-        <p>
-          {node.timeToRead} time to read
-        </p>
-      </div>
+      <Link to={node.fields.slug} key={node.id}>
+        <div>
+          <h3>
+            {node.frontmatter.title}
+            <span>
+              --- {node.frontmatter.date}
+            </span>
+          </h3>
+          <p>
+            {node.excerpt}
+          </p>
+          <p>
+            {node.words} words
+          </p>
+          <p>
+            {node.timeToRead} time to read
+          </p>
+        </div>
+      </Link>
     ));
   };
 
@@ -35,7 +37,6 @@ const BlogPage = ({ data }) => {
         {data.allMarkdownRemark.totalCount} Blog posts
       </h2>
       {_renderBlogPosts(data.allMarkdownRemark.edges)}
-      <Link to="/04-09-2019-hello-universe">Hello Universe</Link>
     </Layout>
   );
 }
@@ -52,6 +53,9 @@ export const query = graphql`
         }
         node {
           id
+          fields {
+            slug
+          }
           frontmatter {
             title
             date(formatString: "DD MMMM, YYYY")
