@@ -2,49 +2,22 @@ import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
 
+import "../styles/header.css";
+
 const Header = ({ siteTitle }) => (
-  <header
-    style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
-    }}
-  >
-    <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
-        >
+  <header className="Header">
+    <div className="Header-container">
+      <h1 className="Header-title">
+        <Link to="/" className="Header-titleText">
           {siteTitle}
         </Link>
       </h1>
-    </div>
-    <div>
-      <p>Table of Contents</p>
-      <ul>
-        <Link
-          to="/"
-        >
-          <li>Home</li>
-        </Link>
-        <Link
-          to="/blog"
-        >
-          <li>Blog</li>
-        </Link>
-        <Link
-          to="/about"
-        >
-          <li>About</li>
+      <ul className="Header-tableOfContents">
+        <Link to="/about">
+            <li className="Header-links">About</li>
+          </Link>
+        <Link to="/blog">
+          <li className="Header-links">Blog</li>
         </Link>
       </ul>
     </div>
@@ -58,5 +31,7 @@ Header.propTypes = {
 Header.defaultProps = {
   siteTitle: ``,
 }
+
+Header.displayName = "Header"
 
 export default Header
