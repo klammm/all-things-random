@@ -4,28 +4,26 @@ import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
+import "../styles/blog.css";
+
 const BlogPage = ({ data }) => {
   const _renderBlogPosts = (edges) => {
     return edges.map(({ node }) => (
-      <Link to={node.fields.slug} key={node.id}>
-        <div>
-          <h3>
+      <div className="BlogPost-container">
+        <Link to={node.fields.slug} key={node.id} className="BlogPost-title">
+          <h3 className="BlogPost-titleText">
             {node.frontmatter.title}
-            <span>
-              --- {node.frontmatter.date}
-            </span>
           </h3>
-          <p>
-            {node.excerpt}
-          </p>
-          <p>
-            {node.words} words
-          </p>
-          <p>
-            {node.timeToRead} time to read
-          </p>
+        </Link>
+        <div className="BlogPost-content">
+          <span className="BlogPost-content-text">{node.frontmatter.date}</span>
+          <span className="BlogPost-content-text">{node.wordCount.words} words</span>
+          <span className="BlogPost-content-text">{node.timeToRead} time to read</span>
         </div>
-      </Link>
+        <p>
+          {node.excerpt}
+        </p>
+      </div>
     ));
   };
 

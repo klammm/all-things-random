@@ -1,0 +1,33 @@
+.BlogPost-title {
+  text-decoration: none;
+}
+
+.BlogPost-titleText {
+  margin-bottom: 10px;
+}
+
+.BlogPost-container {
+  background-color: white;
+  padding: 20px;
+  border: 1px solid black;
+  margin-bottom: 20px;
+}
+
+.BlogPost-content {
+  color: #515760;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.BlogPost-content-text {
+  padding: 0 20px 0 20px;
+  border-right: 2px groove #515760;
+}
+
+.BlogPost-content-text:first-child {
+  padding-left: 0;
+}
+
+.BlogPost-content-text:last-child {
+  border-right: none;
+}
