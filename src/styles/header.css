@@ -5,12 +5,13 @@
 
 .Header-container {
   margin: 0 auto;
-  max-width: 960px;
-  padding: 1.45rem 1.0875rem 0 1.0875rem;
+  max-width: 1360px;
+  padding: 0.45rem 1.0875rem 1.45rem 1.0875rem;
 }
 
 .Header-title {
   margin: 0;
+  display: inline-block;
 }
 
 .Header-titleText {
@@ -24,6 +25,8 @@
 
 .Header-tableOfContents {
   margin: 0 auto;
+  display: inline-block;
+  float: right;
 }
 
 .Header-links {

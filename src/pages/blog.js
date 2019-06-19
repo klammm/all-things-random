@@ -32,7 +32,7 @@ const BlogPage = ({ data }) => {
     <Layout>
       <SEO title="Blog" keywords={[`gatsby`, `application`, `react`, `blog`]} />
       <h2>
-        {data.allMarkdownRemark.totalCount} Blog posts
+        {data.allMarkdownRemark.totalCount} Random Blog Posts
       </h2>
       {_renderBlogPosts(data.allMarkdownRemark.edges)}
     </Layout>

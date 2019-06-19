@@ -1,17 +1,20 @@
-import React from "react"
-import { Link } from "gatsby"
+import React from "react";
 
-import Layout from "../components/layout"
-import SEO from "../components/seo"
+import Layout from "../components/layout";
+import SEO from "../components/seo";
+
+import GenerateMemes from "../utils/meme-generator";
 
 const IndexPage = () => (
   <Layout>
     <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great. a;sldkfjl;akdsg ;alsidg ja;olsdigj ;oaseinj oaisne ;oadisjf alsidjf dfj</p>
-    <Link to="/page-2/">Go to page 2</Link>
+    <h1>Hello there, fellow human</h1>
+    <p>
+      This is a safe space for all things random. Or at least what I deem as random.
+      This will be a combination of my personal blog and an avenue for me to speak my mind and release my emotions on certain topics.
+    </p>
+    <GenerateMemes />
   </Layout>
-)
+);
 
 export default IndexPage
