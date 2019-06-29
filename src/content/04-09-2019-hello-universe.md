@@ -3,12 +3,10 @@ title: "Hello Universe!"
 date: "2019-06-29"
 ---
 
-# Hello Universe!
-
 In this post, I will talk about:
 
-* [Why am I even doing this?](04-09-2019-hello-universe.md#why-am-i-even-doing-this?)
-* [How I built this](04-09-2019-hello-universe.md#how-i-built-this)
+* Why am I even doing this?
+* How I built this
 
 ### Why am I even doing this?
 
