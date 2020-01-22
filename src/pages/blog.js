@@ -15,10 +15,10 @@ const BlogPage = ({ data }) => {
             {node.frontmatter.title}
           </h3>
         </Link>
-        <div className="BlogPost-content">
-          <span className="BlogPost-content-text">{node.frontmatter.date}</span>
-          <span className="BlogPost-content-text">{node.wordCount.words} words</span>
-          <span className="BlogPost-content-text">{node.timeToRead} time to read</span>
+        <div className="BlogPost-card">
+          <span className="BlogPost-card-text">{node.frontmatter.date}</span>
+          <span className="BlogPost-card-text">{node.wordCount.words} words</span>
+          <span className="BlogPost-card-text">{node.timeToRead} min read</span>
         </div>
         <p>
           {node.excerpt}
@@ -27,7 +27,6 @@ const BlogPage = ({ data }) => {
     ));
   };
 
-  console.log('>>>', data);
   return (
     <Layout>
       <SEO title="Blog" keywords={[`gatsby`, `application`, `react`, `blog`]} />
