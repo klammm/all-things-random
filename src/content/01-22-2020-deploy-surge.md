@@ -1,6 +1,6 @@
 ---
 title: "Deploying with Surge"
-date: "2019-01-22"
+date: "2020-01-22"
 ---
 
 In this post, I will talk about:
