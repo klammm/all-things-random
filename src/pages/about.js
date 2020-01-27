@@ -19,7 +19,7 @@ const AboutPage = () => (
       I am conditioned to have.
     </p>
     <p>
-      My name is Kevin Lam. I'm currently a Software Engineer at WalmartLabs located in the San Francisco Bay Area, CA. I work on the Homepage team and I realized I have an interest in infrastructure,
+      My name is Kevin Lam, born and raised in the San Francisco Bay Area. I'm currently a Software Engineer, looking for new opportunities in the Los Angeles area. I previously worked at WalmartLabs and recently a startup called Next Trucking. I have an interest in infrastructure,
       developer productivity, and documenting things.
     </p>
     <h2>Contacting me</h2>
