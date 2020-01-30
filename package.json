@@ -30,7 +30,7 @@
   },
   "git": {
     "scripts": {
-      "pre-push": "gatsby build && surge --project ./public --domain klam.space"
+      "post-merge": "gatsby build && surge --project ./public --domain klam.space"
     }
   },
   "keywords": [
