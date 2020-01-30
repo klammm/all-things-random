@@ -30,7 +30,7 @@
   },
   "git": {
     "scripts": {
-      "post-merge": "npm build && npm surge-deploy"
+      "post-merge": "gatsby build && surge --project ./public --domain klam.space"
     }
   },
   "keywords": [
@@ -44,7 +44,7 @@
     "start": "npm run develop",
     "serve": "gatsby serve",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\"",
-    "surge-deploy": "surge --project ./public --domain klam.space"
+    "build-deploy": "gatsby build && surge --project ./public --domain klam.space"
   },
   "repository": {
     "type": "git",

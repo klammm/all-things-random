@@ -1,6 +1,6 @@
 ---
 title: "Continuous Deployment with Git Hooks"
-date: "2019-01-30"
+date: "2020-01-30"
 ---
 
 In this post, I will talk about:
@@ -8,6 +8,7 @@ In this post, I will talk about:
 * Different ways to achieve Continuous Deployment
 * Git Hooks with Surge
 * What if I want more with my Continuous Deployment?
+* Potential Errors
 
 This post is more of a follow-up to last week's [Deploy to Surge](http://klam.space/content/03-deploy-surge/) article. Now that I have several articles in my blog. It's getting a bit tedious to manually deploy each time I've finished writing an article. What I want is for a continuous integration workflow. I want to be able to deploy to surge every time I push or merge my changes to master.
 
@@ -25,24 +26,15 @@ __Second__(Optional): After installing `git-scripts` and `surge`, I ran across s
 
 __Third__: I created 2 new scripts in my [package.json](https://github.com/klammm/all-things-random/blob/master/package.json) file.
 
-1.
-```
-"scripts": {
-      "surge-deploy": "surge --project ./public --domain klam.space"
-},
-```
-Here, I am choosing to deploy my project from the path `./public` because gatsby bundles our JS and CSS into a minified version in the `public/` directory. Also here, I am deploying to my custom domain of `klam.space`.
-
-2.
 ```
 "git": {
       "scripts": {
-        "post-merge": "npm build && npm surge-deploy"
+        "pre-push": "gatsby build && surge --project ./public --domain klam.space"
       }
 },
 ```
 On the same level as `dependencies` and `devDependencies`, I created a new `"git"` key.
-Here, I am choosing the git hook of `post-merge` with the intention of running this script after a branch has been merged with master. It will execute `gatsby build` followed by a `surge-deploy` script we just created above. I use `&&` as a short-circuit evaluation so if there are any errors with `gatsby bulid` in the build compilation, it will not deploy to surge.
+Here, I am choosing the git hook of `pre-push` with the intention of running this script after a push has been made to my feature branch. I am choosing to deploy my project from the path `./public` because gatsby bundles our JS and CSS into a minified version in the `public/` directory. Also here, I am deploying to my custom domain of `klam.space`. I use `&&` as a short-circuit evaluation so if there are any errors with `gatsby bulid` in the build compilation, it will not deploy to surge.
 
 __Fourth__: Make sure you have proper JSON syntax by pasting your JSON into a [JSON prettifier](https://jsonlint.com/).
 
@@ -50,8 +42,30 @@ Boom, that's it!
 
 ### What if I want more with my Continuous Deployment?
 
-I deemed this approach with Git hooks to be the easiest as it did not require Surge or any deployment workflow access to my repository. With gaining access to your repository, there is a whole flow of authentication that follows with accessing my Surge token, storing them in secrets, and so forth. I opted to save that hassle for another day. I know that I will eventually use CircleCI for more customization power in the Continuous Deployment flow.
+I deemed this approach with Git hooks to be the easiest as it did not require Surge or any deployment workflow access to my repository. With gaining access to your repository, there is a whole flow of authentication that follows with accessing my Surge token, storing them in secrets, and so forth. I opted to save that hassle for another day. I know that I will eventually use CircleCI for more customization power in the Continuous Deployment flow. Note that this integration is only deploying every time I push to a feature branch. What if I only want to deploy once a pull request has been reviewed and merged? I don't want my features to be deployed when they are not ready. A follow up article to this will be posted as soon as I can get this to work.
 
 Github actions seemed very powerful in customizing and adding more to a workflow. I saw capabilities of integrating with AWS, testing a NodeJS project, and more.
 
-In the future, we will need more processes to be automated such as running unit tests, linting, and building a production bundle. That is all possible with either Github Actions, CircleCI, Jenkins, TravisCI, etc. There are many CI/CD pipelines in the industry today so we have options! 
+In the future, we will need more processes to be automated such as running unit tests, linting, and building a production bundle. That is all possible with either Github Actions, CircleCI, Jenkins, TravisCI, etc. There are many CI/CD pipelines in the industry today so we have options!
+
+### Potential Errors
+
+As I was testing this out, I was running across several errors. One below:
+
+```
+The above error occurred in the <StoreStateProvider> component:
+    in StoreStateProvider
+    in App
+
+React will try to recreate this component tree from scratch using the error boundary you provided, App.
+Warning: App: Error boundaries should implement getDerivedStateFromError(). In that method, return a state update to display an error message or fallback UI.
+error Invalid hook call. Hooks can only be called inside of the body of a function component. This could happen for one of the following reasons:
+1. You might have mismatching versions of React and the renderer (such as React DOM)
+2. You might be breaking the Rules of Hooks
+3. You might have more than one copy of React in the same app
+See https://fb.me/react-invalid-hook-call for tips about how to debug and fix this problem.
+error UNHANDLED REJECTION
+Failed to exec pre-push hook script
+```
+
+I solved this particular error by deleting my `node-modules`, `package-lock.json`, and `yarn.lock` and reinstalling my node modules with `npm install`.
