@@ -37,12 +37,12 @@ Here, I am choosing to deploy my project from the path `./public` because gatsby
 ```
 "git": {
       "scripts": {
-        "post-merge": "npm build && npm surge-deploy"
+        "pre-push": "npm build && npm surge-deploy"
       }
 },
 ```
 On the same level as `dependencies` and `devDependencies`, I created a new `"git"` key.
-Here, I am choosing the git hook of `post-merge` with the intention of running this script after a branch has been merged with master. It will execute `gatsby build` followed by a `surge-deploy` script we just created above. I use `&&` as a short-circuit evaluation so if there are any errors with `gatsby bulid` in the build compilation, it will not deploy to surge.
+Here, I am choosing the git hook of `pre-push` with the intention of running this script after a push has been made to my feature branch. It will execute `gatsby build` followed by a `surge-deploy` script we just created above. I use `&&` as a short-circuit evaluation so if there are any errors with `gatsby bulid` in the build compilation, it will not deploy to surge.
 
 __Fourth__: Make sure you have proper JSON syntax by pasting your JSON into a [JSON prettifier](https://jsonlint.com/).
 
@@ -54,4 +54,4 @@ I deemed this approach with Git hooks to be the easiest as it did not require Su
 
 Github actions seemed very powerful in customizing and adding more to a workflow. I saw capabilities of integrating with AWS, testing a NodeJS project, and more.
 
-In the future, we will need more processes to be automated such as running unit tests, linting, and building a production bundle. That is all possible with either Github Actions, CircleCI, Jenkins, TravisCI, etc. There are many CI/CD pipelines in the industry today so we have options! 
+In the future, we will need more processes to be automated such as running unit tests, linting, and building a production bundle. That is all possible with either Github Actions, CircleCI, Jenkins, TravisCI, etc. There are many CI/CD pipelines in the industry today so we have options!
