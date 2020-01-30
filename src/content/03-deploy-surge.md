@@ -21,6 +21,8 @@ I'm not really going to explain the in-depth details of deployment because as Wi
 
 __TLDR__: I deployed my Gatsby app by following the [Gatsby-Surge docs](https://www.gatsbyjs.org/docs/deploying-to-surge/) and the [Official Surge docs](https://surge.sh/)
 
+I chose Surge simply because the service was free and very easy to use and get going for simple single page applications.
+
 __First__: I deployed with Surge using their CLI tool which I quickly npm installed with `npm install -g surge`.
 
 __Second__: We're going to have to build our production-ready JS and CSS bundle. To do that, I ran a gatsby command in the terminal: `gatsby build`. After this command, all our assets and bundles are ready in the `public/` directory. Some common directory names I've seen are either `dist`, `public`, or `build`.
