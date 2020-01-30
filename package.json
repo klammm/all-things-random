@@ -30,7 +30,7 @@
   },
   "git": {
     "scripts": {
-      "pre-push": "npm build-deploy"
+      "pre-push": "npm run build-deploy"
     }
   },
   "keywords": [
