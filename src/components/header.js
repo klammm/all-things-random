@@ -19,6 +19,9 @@ const Header = ({ siteTitle }) => (
         <Link to="/blog">
           <li className="Header-links">Blog</li>
         </Link>
+        <Link to="/twitch">
+          <li className="Header-links">Twitch</li>
+        </Link>
       </ul>
     </div>
   </header>
