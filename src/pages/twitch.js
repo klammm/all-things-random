@@ -5,7 +5,7 @@ import SEO from "../components/seo";
 
 const TwitchPage = () => (
   <Layout>
-    <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
+    <SEO title="Home" keywords={[`gatsby`, `application`, `react`, 'twitch', 'wow', 'world of warcraft', 'overwatch', 'warcraft 3', 'super smash bros', 'gaming', 'esports', 'streaming', 'entertainment']} />
     <p>Here's me potentially playing video games and heavily procrastinating</p>
     <iframe
       src="https://player.twitch.tv/?channel=smokymcbear"

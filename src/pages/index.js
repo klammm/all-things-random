@@ -11,7 +11,7 @@ const IndexPage = () => (
     <h1>Hello there, fellow human</h1>
     <p>
       This is a safe space for all things random. Or at least what I deem as random.
-      This will be a combination of my personal blog and an avenue for me to speak my mind and release my emotions on certain topics.
+      This will be a combination of my personal blog, an avenue for me to speak my mind and release my emotions on certain topics, and to try out cool stuff.
     </p>
     <GenerateMemes />
   </Layout>
