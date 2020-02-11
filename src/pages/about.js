@@ -7,11 +7,13 @@ import githubLogo from "../images/Github-Mark-32px.png";
 import linkedinLogo from "../images/In-Blue-34.png";
 import twitterLogo from "../images/Twitter_Social_Icon_Rounded_Square_Color.png";
 
+import { SEO_KEYWORDS } from '../constants'
+
 import "../styles/about.css";
 
 const AboutPage = () => (
   <Layout>
-    <SEO title="About" keywords={[`gatsby`, `application`, `react`]} />
+    <SEO title="About Me" keywords={[...SEO_KEYWORDS.TECH, ...SEO_KEYWORDS.ABOUT]} />
     <h2>About Me</h2>
     <p>
       Here's who I am so you know I'm not some crazy guy locked up in a basement. Also, since you know who I am now,
