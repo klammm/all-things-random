@@ -4,6 +4,7 @@ export default {
     'application',
     'react',
     'html',
+    'js',
     'css',
     'web',
     'development',
@@ -23,7 +24,7 @@ export default {
     'blog',
     'coding',
     'computer',
-    
+    'nodejs',
   ],
   ABOUT: [
     'bias',
@@ -67,7 +68,7 @@ export default {
     'streaming',
     'entertainment',
     'video games',
-    ''
+    'stream',
   ],
   BLOG: [
     'writing',

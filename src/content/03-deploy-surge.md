@@ -1,6 +1,25 @@
 ---
 title: "Deploying with Surge"
 date: "2020-01-22"
+keywords:
+- 'deployment'
+- 'continuous deployment'
+- 'CI/CD'
+- 'surge'
+- 'development lifecycle'
+- 'lifecycle'
+- 'abstraction'
+- 'system network'
+- 'architecture'
+- 'CLI'
+- 'command line interface'
+- 'npm'
+- 'yarn'
+- 'authentication'
+- 'domain'
+- 'custom'
+- 'website'
+- 'bundle'
 ---
 
 In this post, I will talk about:

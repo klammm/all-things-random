@@ -1,6 +1,19 @@
 ---
 title: "First steps of placing a live Twitch stream on a website"
 date: "2020-02-03"
+keywords:
+- 'pokemon'
+- 'gameboy'
+- 'interactive'
+- 'iframe'
+- 'custom html'
+- 'twitch developer'
+- 'guide'
+- 'parameters'
+- 'client id'
+- 'OAuth token'
+- 'token'
+- 'product'
 ---
 
 In this post, I will talk about:

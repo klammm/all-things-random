@@ -1,6 +1,30 @@
 ---
 title: "Continuous Deployment with Git Hooks"
 date: "2020-01-30"
+keywords:
+- 'git hooks'
+- 'surge'
+- 'continuous deployment'
+- 'deployment'
+- 'workflow'
+- 'script'
+- 'build'
+- 'bundle'
+- 'tutorial'
+- 'dependencies'
+- 'CircleCI'
+- 'token'
+- 'github actions'
+- 'github'
+- 'pipeline'
+- 'linting'
+- 'lint'
+- 'node modules'
+- 'package lock'
+- 'hooks'
+- 'security'
+- 'vulnerabilities'
+
 ---
 
 In this post, I will talk about:

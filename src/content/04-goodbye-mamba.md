@@ -1,6 +1,34 @@
 ---
 title: "Mamba Mentality: Bigger than just Basketball. Goodbye Kobe, you will forever be immortalized."
 date: "2020-01-27"
+keywords:
+- 'mamba'
+- 'mamba mentality'
+- 'kobe'
+- 'kobe bryant'
+- 'Basketball'
+- 'helicopter'
+- 'competitive'
+- 'high performance'
+- 'performance'
+- 'black mamba'
+- 'mantra'
+- 'competitive spirit'
+- 'influence'
+- 'success'
+- 'attitude'
+- 'esports'
+- 'gianna'
+- 'Calabasas'
+- 'California'
+- 'GOAT'
+- 'film'
+- 'production'
+- 'academy'
+- 'dear basketball'
+- '#8'
+- '#24'
+- 'immortalized'
 ---
 
 For those that do not know, [Kobe Bryant](https://en.wikipedia.org/wiki/Kobe_Bryant) has passed away yesterday, January 26th 2020, at the age of 41 along with his 13-year-old daughter, Gianna Bryant, in a helicopter crash in Calabasas, California. Kobe Bryant had one of the most illustrious careers in NBA history. Widely known as the internet-popular GOAT 🐐 (Greatest Of All Time), Kobe was known for his killer instinct, insatiable competitive spirit, and gifted talent matched by his unwavering work ethic, passion for constant improvement, and an obsession for analyzing the game of basketball. His style of play on the court included his signature post moves that ended in his iconic fadeaway that single-handedly willed losing games back into contention. Self-proclaimed as the "Black Mamba" for its deadly accuracy and rapid striking, Kobe created the "Mamba Mentality" which is a contagious competitive mentality that could be applied to most, if not all, areas of life. Kobe will be forever immortalized for his contributions to modern society's high-performance culture. He was more than just a basketball player to me, he was bigger than just basketball.
