@@ -20,7 +20,10 @@ export default {
     'technology',
     'API',
     'platform',
-    'blog'
+    'blog',
+    'coding',
+    'computer',
+    
   ],
   ABOUT: [
     'bias',
@@ -72,5 +75,7 @@ export default {
     'random blog',
     'random blog posts',
     'posts',
+    'tutorial',
+    'helpful',
   ]
 }

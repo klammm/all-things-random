@@ -6,6 +6,37 @@ keywords:
 - 'universe'
 - 'hello world'
 - 'hello universe'
+- 'virtual playground'
+- 'art'
+- 'computer science'
+- 'philosophy'
+- 'mathematics'
+- 'gaming'
+- 'food'
+- 'culture'
+- 'memes'
+- 'training ground'
+- 'writing style'
+- 'GraphQL'
+- 'Markdown'
+- 'tutorial'
+- 'plugins'
+- 'query'
+- 'single page application'
+- 'developer'
+- 'developer friendly'
+- 'data'
+- 'data flow'
+- 'config'
+- 'node'
+- 'addon'
+- 'money'
+- 'dependencies'
+- 'dependency'
+- 'velocity'
+- 'quick'
+- 'passion'
+
 ---
 
 In this post, I will talk about:
@@ -45,7 +76,7 @@ _Spoiler alert_: Gatsby is really fast and really fast to get started with.
 
 The entire application was quick to get up and running after learning about the [Gatsby API](https://www.gatsbyjs.org/docs/api-reference/). To start, two files were set: [gatsby-config.js](https://www.gatsbyjs.org/docs/gatsby-config/) and [gatsby-node.js](https://www.gatsbyjs.org/docs/node-apis/). The Gatsby Config API was used for general application-wide settings such as other gatsby dependencies(called plugins) and site meta data. The Gatsby Node API was used to generate pages based on the GraphQL query.
 
-The only challenging part of getting started is having to learn slugs and Gatsby's data flow. I could relate it to an "Ignorance is Bliss", matrix-like relationship. Most of the diligently chosen configuration, precisely crafted development, and in general hard work had already been done to ensure morons like us can't screw it up. "Here's all you really need. You have to follow our data flow like this and all will be good." So if you like coding in the matrix knowing that the real world around you is burning while you're in this heavenly bliss state of coding, Gatsby is the one for you.
+The only challenging part of getting started is having to learn slugs and Gatsby's data flow. I could relate it to an "Ignorance is Bliss" matrix-like relationship. Most of the diligently chosen configuration, precisely crafted development, and in general hard work had already been done to ensure morons like us can't screw it up. "Here's all you really need. You have to follow our data flow like this and all will be good." So if you like coding in the matrix knowing that the real world around you is burning while you're in this heavenly bliss state of coding, Gatsby is the one for you.
 
 Anyways, the tutorial was beginner-friendly assuming no coding experience. The development velocity was fast and user experience is snappy, _in a good way_.
 
