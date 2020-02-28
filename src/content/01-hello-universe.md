@@ -62,7 +62,9 @@ Potential topics I will write about or even showcase:
 - Culture and memes because why not?
 - Any other future topics that I might grow into and have interest towards
 
-Mostly, this will be used as a training ground. I genuinely don't expect anyone to read this at all. There are over a thousand blogs more helpful and legitimate than mine with fewer blabber-mouthed, non-contributing mumbo jumbo. There's a chance, if not a guaranteed certainty, I might never write about a certain topic above because talk is CHEAP. In the past and perhaps still is, my writing style was considered tasteless, biased, and even downright stagnant. It's even possible that, you as the reader, may consider being offended at one point or asking yourself "Why am I being involved in this so much?". However if you're daring enough to read this far, I thank you from the bottom of my heart to taking the time to understand who I am and where I come from. I'll stop bashing myself from here on out, but I'll keep engaging you and calling you out from time to time. It's just my style 😉
+Mostly, this will be used as a training ground. I genuinely don't expect anyone to read this at all. There are over a thousand blogs more helpful and legitimate than mine with fewer blabber-mouthed, non-contributing mumbo jumbo. There's a chance, if not a guaranteed certainty, I might never write about a certain topic above because talk is CHEAP. In the past and perhaps still is, my writing style was considered tasteless, biased, and even downright stagnant.
+
+It's even possible that, you as the reader, may consider being offended at one point or asking yourself "Why am I being involved in this so much?". However if you're daring enough to read this far, I thank you from the bottom of my heart to taking the time to understand who I am and where I come from. I'll stop bashing myself from here on out, but I'll keep engaging you and calling you out from time to time. It's just my style 😉
 
 ### How I built this
 
