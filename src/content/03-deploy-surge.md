@@ -1,6 +1,25 @@
 ---
 title: "Deploying with Surge"
 date: "2020-01-22"
+keywords:
+- 'deployment'
+- 'continuous deployment'
+- 'CI/CD'
+- 'surge'
+- 'development lifecycle'
+- 'lifecycle'
+- 'abstraction'
+- 'system network'
+- 'architecture'
+- 'CLI'
+- 'command line interface'
+- 'npm'
+- 'yarn'
+- 'authentication'
+- 'domain'
+- 'custom'
+- 'website'
+- 'bundle'
 ---
 
 In this post, I will talk about:
@@ -12,10 +31,14 @@ In this post, I will talk about:
 
 __TLDR__: Deployment is not trivial and I struggle with it.
 
-During my time learning about web development and programming in general, one topic that was always saved for the end of the course was [deployment](https://en.wikipedia.org/wiki/Software_deployment). Deployment was one aspect of the software development lifecycle that I was uncomfortable with not having granular control over. It may even feel like a lot has been abstracted away from us now. The topic of deployment still somewhat haunts me to this day, which is why I'm finally writing about it. Not all engineers truly understand deployment, and those savvy enough to understand it know that it comes down to _simple_ system network architecture. Keyword here being: _simple_. It definitely was not _simple_ enough for me to understand the first time around.
+During my time learning about web development and programming in general, one topic that was always saved for the end of the course was [deployment](https://en.wikipedia.org/wiki/Software_deployment). Deployment was one aspect of the software development lifecycle that I was uncomfortable with not having granular control over. It may even feel like a lot has been abstracted away from us now. The topic of deployment still somewhat haunts me to this day, which is why I'm finally writing about it.
+
+Not all engineers truly understand deployment, and those savvy enough to understand it know that it comes down to _simple_ system network architecture. Keyword here being: _simple_. It definitely was not _simple_ enough for me to understand the first time around.
 Anyways, so what magic needs to happen to deploy your web app that you've—_I've really_—spent all your blood, sweat, tears, and stress over?
 
-I'm not really going to explain the in-depth details of deployment because as Wikipedia puts it, "Because every software system is unique, the precise processes or procedures within each activity can hardly be defined. Therefore, 'deployment' should be interpreted as a general process that has to be customized according to specific requirements or characteristics." So to put it in ELI5(Explain Like I'm 5) circumstances, each system is unique that we can't give deployment a blanket definition. I wouldn't end this post with a cliffhanger like that so I'll just talk about my experience with using Surge to deploy.
+I'm not really going to explain the in-depth details of deployment because as Wikipedia puts it, "Because every software system is unique, the precise processes or procedures within each activity can hardly be defined. Therefore, 'deployment' should be interpreted as a general process that has to be customized according to specific requirements or characteristics."
+
+So to put it in __ELI5__(Explain Like I'm 5) circumstances, each system is unique that we can't give deployment a blanket definition. I wouldn't end this post with a cliffhanger like that so I'll just talk about my experience with using Surge to deploy.
 
 ### Deploying with Surge
 

@@ -1,6 +1,42 @@
 ---
 title: "Hello Universe!"
 date: "2019-04-09"
+keywords:
+- 'hello'
+- 'universe'
+- 'hello world'
+- 'hello universe'
+- 'virtual playground'
+- 'art'
+- 'computer science'
+- 'philosophy'
+- 'mathematics'
+- 'gaming'
+- 'food'
+- 'culture'
+- 'memes'
+- 'training ground'
+- 'writing style'
+- 'GraphQL'
+- 'Markdown'
+- 'tutorial'
+- 'plugins'
+- 'query'
+- 'single page application'
+- 'developer'
+- 'developer friendly'
+- 'data'
+- 'data flow'
+- 'config'
+- 'node'
+- 'addon'
+- 'money'
+- 'dependencies'
+- 'dependency'
+- 'velocity'
+- 'quick'
+- 'passion'
+
 ---
 
 In this post, I will talk about:
@@ -26,7 +62,9 @@ Potential topics I will write about or even showcase:
 - Culture and memes because why not?
 - Any other future topics that I might grow into and have interest towards
 
-Mostly, this will be used as a training ground. I genuinely don't expect anyone to read this at all. There are over a thousand blogs more helpful and legitimate than mine with fewer blabber-mouthed, non-contributing mumbo jumbo. There's a chance, if not a guaranteed certainty, I might never write about a certain topic above because talk is CHEAP. In the past and perhaps still is, my writing style was considered tasteless, biased, and even downright stagnant. It's even possible that, you as the reader, may consider being offended at one point or asking yourself "Why am I being involved in this so much?". However if you're daring enough to read this far, I thank you from the bottom of my heart to taking the time to understand who I am and where I come from. I'll stop bashing myself from here on out, but I'll keep engaging you and calling you out from time to time. It's just my style 😉
+Mostly, this will be used as a training ground. I genuinely don't expect anyone to read this at all. There are over a thousand blogs more helpful and legitimate than mine with fewer blabber-mouthed, non-contributing mumbo jumbo. There's a chance, if not a guaranteed certainty, I might never write about a certain topic above because talk is CHEAP. In the past and perhaps still is, my writing style was considered tasteless, biased, and even downright stagnant.
+
+It's even possible that, you as the reader, may consider being offended at one point or asking yourself "Why am I being involved in this so much?". However if you're daring enough to read this far, I thank you from the bottom of my heart to taking the time to understand who I am and where I come from. I'll stop bashing myself from here on out, but I'll keep engaging you and calling you out from time to time. It's just my style 😉
 
 ### How I built this
 
@@ -40,7 +78,7 @@ _Spoiler alert_: Gatsby is really fast and really fast to get started with.
 
 The entire application was quick to get up and running after learning about the [Gatsby API](https://www.gatsbyjs.org/docs/api-reference/). To start, two files were set: [gatsby-config.js](https://www.gatsbyjs.org/docs/gatsby-config/) and [gatsby-node.js](https://www.gatsbyjs.org/docs/node-apis/). The Gatsby Config API was used for general application-wide settings such as other gatsby dependencies(called plugins) and site meta data. The Gatsby Node API was used to generate pages based on the GraphQL query.
 
-The only challenging part of getting started is having to learn slugs and Gatsby's data flow. I could relate it to an "Ignorance is Bliss", matrix-like relationship. Most of the diligently chosen configuration, precisely crafted development, and in general hard work had already been done to ensure morons like us can't screw it up. "Here's all you really need. You have to follow our data flow like this and all will be good." So if you like coding in the matrix knowing that the real world around you is burning while you're in this heavenly bliss state of coding, Gatsby is the one for you.
+The only challenging part of getting started is having to learn slugs and Gatsby's data flow. I could relate it to an "Ignorance is Bliss" matrix-like relationship. Most of the diligently chosen configuration, precisely crafted development, and in general hard work had already been done to ensure morons like us can't screw it up. "Here's all you really need. You have to follow our data flow like this and all will be good." So if you like coding in the matrix knowing that the real world around you is burning while you're in this heavenly bliss state of coding, Gatsby is the one for you.
 
 Anyways, the tutorial was beginner-friendly assuming no coding experience. The development velocity was fast and user experience is snappy, _in a good way_.
 

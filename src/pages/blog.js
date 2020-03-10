@@ -4,13 +4,15 @@ import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
+import { SEO_KEYWORDS } from '../constants'
+
 import "../styles/blog.css";
 
 const BlogPage = ({ data }) => {
   const _renderBlogPosts = (edges) => {
     return edges.map(({ node }) => (
-      <div className="BlogPost-container">
-        <Link to={node.fields.slug} key={node.id} className="BlogPost-title">
+      <div className="BlogPost-container" key={node.id}>
+        <Link to={node.fields.slug} className="BlogPost-title">
           <h3 className="BlogPost-titleText">
             {node.frontmatter.title}
           </h3>
@@ -29,7 +31,7 @@ const BlogPage = ({ data }) => {
 
   return (
     <Layout>
-      <SEO title="Blog" keywords={[`gatsby`, `application`, `react`, `blog`]} />
+      <SEO title="Blog" keywords={[...SEO_KEYWORDS.TECH, ...SEO_KEYWORDS.BLOG]} />
       <h2>
         {data.allMarkdownRemark.totalCount} Random Blog Posts
       </h2>
@@ -55,7 +57,7 @@ export const query = graphql`
           }
           frontmatter {
             title
-            date(formatString: "DD MMMM, YYYY")
+            date(formatString: "MMMM DD, YYYY")
           }
           excerpt
           wordCount {

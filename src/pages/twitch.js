@@ -1,21 +1,24 @@
-import React from "react";
+import React from "react"
 
-import Layout from "../components/layout";
-import SEO from "../components/seo";
+import Layout from "../components/layout"
+import SEO from "../components/seo"
+
+import { SEO_KEYWORDS } from '../constants'
 
 const TwitchPage = () => (
   <Layout>
-    <SEO title="Home" keywords={[`gatsby`, `application`, `react`, 'twitch', 'wow', 'world of warcraft', 'overwatch', 'warcraft 3', 'super smash bros', 'gaming', 'esports', 'streaming', 'entertainment']} />
+    <SEO title="Twitch" keywords={[...SEO_KEYWORDS.TECH, ...SEO_KEYWORDS.TWITCH]} />
     <p>Here's me potentially playing video games and heavily procrastinating</p>
     <iframe
       src="https://player.twitch.tv/?channel=smokymcbear"
       height="720"
       width="880"
-      frameborder="0"
+      frameBorder="0"
       scrolling="no"
-      allowfullscreen="true">
-    </iframe>
+      allowFullScreen
+      title="Twitch stream Smokymcbear"
+    />
   </Layout>
-);
+)
 
 export default TwitchPage

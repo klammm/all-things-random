@@ -1,13 +1,28 @@
 ---
 title: "First steps of placing a live Twitch stream on a website"
 date: "2020-02-03"
+keywords:
+- 'pokemon'
+- 'gameboy'
+- 'interactive'
+- 'iframe'
+- 'custom html'
+- 'twitch developer'
+- 'guide'
+- 'parameters'
+- 'client id'
+- 'OAuth token'
+- 'token'
+- 'product'
 ---
 
 In this post, I will talk about:
 * Adding the Twitch stream
 * What I hope to add in the future
 
-So as far as you all know, I haven't really talked about any of my hobbies or what I like to do outside of writing or tech. Well I'll have you all know I'm a [pretty fun guy](https://www.ctvnews.ca/polopoly_fs/1.4106952.1537806593!/httpImage/image.jpg_gen/derivatives/landscape_1020/image.jpg). Ever since I was a child, I enjoyed video games. My first-ever video game was Pokemon Red with the Gameboy Color. What I enjoy about video games is being able to see your progress in a very helpful visual way in a world where progress isn't that easy to see. As I grew older, video games started becoming more competitive. I wanted to outplay my opponents and read their every move. This is where my love for gaming grew where I didn't think was possible. For me, outclassing your opponent almost became an art form per se. So that's my love for gaming. With that said, I was able to place my [Twitch stream](https://www.twitch.tv/smokymcbear) onto this Gatsby blog for all you _lucky_ people to see.
+So as far as you all know, I haven't really talked about any of my hobbies or what I like to do outside of writing or tech. Well I'll have you all know I'm a [pretty fun guy](https://www.ctvnews.ca/polopoly_fs/1.4106952.1537806593!/httpImage/image.jpg_gen/derivatives/landscape_1020/image.jpg). Ever since I was a child, I enjoyed video games. My first-ever video game was Pokemon Red with the Gameboy Color. What I enjoy about video games is being able to see your progress in a very helpful visual way in a world where progress isn't that easy to see.
+
+As I grew older, video games started becoming more competitive. I wanted to outplay my opponents and read their every move. This is where my love for gaming grew where I didn't think was possible. For me, outclassing your opponent almost became an art form per se. So that's my love for gaming. With that said, I was able to place my [Twitch stream](https://www.twitch.tv/smokymcbear) onto this Gatsby blog for all you _lucky_ people to see.
 
 ### Adding the Twitch stream
 

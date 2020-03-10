@@ -1,14 +1,20 @@
 import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
+import SEO from "../components/seo"
 
-import "../styles/blog.css";
+import { SEO_KEYWORDS } from '../constants'
+
+import "../styles/blog.css"
 
 export default ({ data }) => {
   const post = data.markdownRemark
-  
+
+  const seo_keywords = post.frontmatter.keywords || [];
+
   return (
     <Layout>
+      <SEO title={post.frontmatter.title} keywords={[...SEO_KEYWORDS.TECH, ...seo_keywords]} />
       <h1>{post.frontmatter.title}</h1>
       <div className="BlogPost-content">
         <span className="BlogPost-content-text">{post.frontmatter.date}</span>
@@ -27,7 +33,8 @@ export const query = graphql`
       html
       frontmatter {
         title
-        date(formatString: "DD MMMM, YYYY")
+        date(formatString: "MMMM DD, YYYY")
+        keywords
       }
       wordCount {
         words

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import { REDDIT_URL } from "./constants";
+import { API } from "../constants";
 
 import "../styles/meme.css";
 
@@ -18,7 +18,7 @@ class GenerateMemes extends Component {
   }
 
   fetchMemes() {
-    return fetch(REDDIT_URL)
+    return fetch(API.REDDIT_URL)
       .then(res => res.json())
       .then(response => {
         const payload = response.data.children;
