@@ -43,7 +43,7 @@ workflows:
       - build
       - deploy-prod:
           requires:
-            - build-and-test
+            - build
           filters:
             branches:
               only: master
