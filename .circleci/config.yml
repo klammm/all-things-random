@@ -11,7 +11,20 @@ jobs:
           steps:
             - run: npm install
             - run: npm test
+            - run: npm build
+  deploy-prod:
+    working_directory: /tmp/all-things-random
+    steps:
+      - run:
+          name: Deploy if tests pass, build is succssful, and branch is Master
+          command: surge --project ./public --domain klam.space
 workflows:
     build-and-test:
       jobs:
         - build-and-test
+        - deploy-prod:
+          requires:
+            - build
+          filters:
+            branches:
+              only: master
