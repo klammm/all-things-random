@@ -7,24 +7,42 @@ jobs:
       name: node/default
     steps:
       - checkout
-      - node/with-cache:
-          steps:
-            - run: npm install
-            - run: npm test
-            - run: npm build
+      # Download and cache dependencies
+      - restore_cache:
+          keys:
+          - v1-dependencies-{{ checksum "package.json" }}
+          # fallback to using the latest cache if no exact match is found
+          - v1-dependencies-
+
+      - run: npm install
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}
+      # run placeholder test
+      - run: npm test
+      - run: npm run build
   deploy-prod:
+    executor:
+      name: node/default
     working_directory: /tmp/all-things-random
     steps:
+      - checkout
+      - run: npm run build
+      - run: npm install surge
       - run:
           name: Deploy if tests pass, build is succssful, and branch is Master
           command: surge --project ./public --domain klam.space
 workflows:
-    build-and-test:
-      jobs:
-        - build-and-test
-        - deploy-prod:
-            requires:
-              - build
-            filters:
-              branches:
-                only: master
+  version: 2
+  build:
+    jobs:
+      - build-and-test
+  deploy:
+    jobs:
+      - deploy-prod:
+          requires:
+            - build
+          filters:
+            branches:
+              only: master
