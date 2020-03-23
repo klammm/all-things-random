@@ -1,6 +1,6 @@
-import React from "react";
+import React from "react"
 
-import "../styles/footer.css";
+import "../styles/footer.css"
 
 const Footer = props => (
   <footer className="Footer">
@@ -8,6 +8,6 @@ const Footer = props => (
     {` `}
     <a href="https://www.gatsbyjs.org">Gatsby</a>
   </footer>
-);
+)
 
-export default Footer;
+export default Footer
