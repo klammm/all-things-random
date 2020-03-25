@@ -26,7 +26,6 @@ jobs:
       name: node/default
     steps:
       - checkout
-      - run: npm run build
       - run: npm install surge
       - run:
           name: Deploy if tests pass, build is succssful, and branch is Master
