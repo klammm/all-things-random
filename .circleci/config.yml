@@ -36,12 +36,12 @@ workflows:
   build:
     jobs:
       - build
-  # deploy:
-  #   jobs:
-  #     - build
-  #     - deploy-prod:
-  #         requires:
-  #           - build
-  #         filters:
-  #           branches:
-  #             only: master
+  deploy:
+    jobs:
+      - build
+      - deploy-prod:
+          requires:
+            - build
+          filters:
+            branches:
+              only: master
