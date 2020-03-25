@@ -3,9 +3,9 @@ import React from "react"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-import githubLogo from "../images/Github-Mark-32px.png"
-import linkedinLogo from "../images/In-Blue-34.png"
-import twitterLogo from "../images/Twitter_Social_Icon_Rounded_Square_Color.png"
+// import githubLogo from "../images/Github-Mark-32px.png"
+// import linkedinLogo from "../images/In-Blue-34.png"
+// import twitterLogo from "../images/Twitter_Social_Icon_Rounded_Square_Color.png"
 
 import { SEO_KEYWORDS } from "../constants"
 
@@ -42,33 +42,33 @@ const AboutPage = () => (
       &nbsp;since that's really what you have. An issue.
     </p>
     <div>
-      <a href="https://github.com/klammm">
-        <img
-          class="About-socialIcon"
-          src={githubLogo}
-          alt="Link to my Github profile"
-          width="32"
-          height="32"
-        />
-      </a>
-      <a href="https://www.linkedin.com/in/klam1993/">
-        <img
-          class="About-socialIcon"
-          src={linkedinLogo}
-          alt="Link to my LinkedIn profile"
-          width="32"
-          height="32"
-        />
-      </a>
-      <a href="https://twitter.com/klammm93">
-        <img
-          class="About-socialIcon"
-          src={twitterLogo}
-          alt="Link to my Twitter profile"
-          width="32"
-          height="32"
-        />
-      </a>
+      // <a href="https://github.com/klammm">
+      //   <img
+      //     class="About-socialIcon"
+      //     src={githubLogo}
+      //     alt="Link to my Github profile"
+      //     width="32"
+      //     height="32"
+      //   />
+      // </a>
+      // <a href="https://www.linkedin.com/in/klam1993/">
+      //   <img
+      //     class="About-socialIcon"
+      //     src={linkedinLogo}
+      //     alt="Link to my LinkedIn profile"
+      //     width="32"
+      //     height="32"
+      //   />
+      // </a>
+      // <a href="https://twitter.com/klammm93">
+      //   <img
+      //     class="About-socialIcon"
+      //     src={twitterLogo}
+      //     alt="Link to my Twitter profile"
+      //     width="32"
+      //     height="32"
+      //   />
+      // </a>
     </div>
   </Layout>
 )
