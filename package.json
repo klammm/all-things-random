@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "all-things-random",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "Visit Klam.space",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Kevin Lam <kevinlam.sf@gmail.com>",
   "dependencies": {
     "gatsby": "^2.19.10",
     "gatsby-image": "^2.0.35",
@@ -30,7 +30,7 @@
   },
   "git": {
     "scripts": {
-      "pre-push": "gatsby build && surge --project ./public --domain klam.space"
+      "pre-push": "npm run test && gatsby build"
     }
   },
   "keywords": [
@@ -43,7 +43,7 @@
     "format": "prettier --write src/**/*.{js,jsx}",
     "start": "npm run develop",
     "serve": "gatsby serve",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\"",
+    "test": "npm run format",
     "build-deploy": "gatsby build && surge --project ./public --domain klam.space"
   },
   "repository": {

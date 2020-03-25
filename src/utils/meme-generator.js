@@ -1,16 +1,16 @@
-import React, { Component } from "react";
+import React, { Component } from "react"
 
-import { API } from "../constants";
+import { API } from "../constants"
 
-import "../styles/meme.css";
+import "../styles/meme.css"
 
 class GenerateMemes extends Component {
   constructor(props) {
-    super(props);
+    super(props)
 
     this.state = {
-      meme: null
-    };
+      meme: null,
+    }
   }
 
   componentDidMount() {
@@ -21,34 +21,30 @@ class GenerateMemes extends Component {
     return fetch(API.REDDIT_URL)
       .then(res => res.json())
       .then(response => {
-        const payload = response.data.children;
+        const payload = response.data.children
         for (let i = 0; i < payload.length; i++) {
           if (payload[i].data.post_hint === "image") {
-            return payload[i].data;
+            return payload[i].data
           }
         }
-        return null;
+        return null
       })
-      .catch(err => console.error("Error Generating Memes: ", err));
+      .catch(err => console.error("Error Generating Memes: ", err))
   }
 
   render() {
-    const { meme } = this.state;
+    const { meme } = this.state
 
     return meme ? (
       <div>
         <h3>Meme of the Day</h3>
-        <h4 className="Meme-title">
-          {meme.title}
-        </h4>
-        <p className="Meme-author">
-          Posted by: u/{meme.author}
-        </p>
+        <h4 className="Meme-title">{meme.title}</h4>
+        <p className="Meme-author">Posted by: u/{meme.author}</p>
         <img src={meme.url} alt={`meme of the day ${meme.title}`} />
         <p>Created using the Reddit API from /r/dankmemes</p>
       </div>
-    ) : null;
+    ) : null
   }
 }
 
-export default GenerateMemes;
+export default GenerateMemes

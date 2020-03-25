@@ -1,0 +1,47 @@
+version: 2.1
+orbs:
+  node: circleci/node@1.1.6
+jobs:
+  build:
+    executor:
+      name: node/default
+    steps:
+      - checkout
+      # Download and cache dependencies
+      - restore_cache:
+          keys:
+          - v1-dependencies-{{ checksum "package.json" }}
+          # fallback to using the latest cache if no exact match is found
+          - v1-dependencies-
+
+      - run: npm install
+      - save_cache:
+          paths:
+            - ./node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}
+      # run placeholder test
+      - run: npm run build
+  deploy-prod:
+    executor:
+      name: node/default
+    steps:
+      - checkout
+      - run: npm run build
+      - run: npm install surge
+      - run:
+          name: Deploy if tests pass, build is succssful, and branch is Master
+          command: surge --project ./public --domain klam.space
+workflows:
+  version: 2
+  build:
+    jobs:
+      - build
+  deploy:
+    jobs:
+      - build
+      - deploy-prod:
+          requires:
+            - build
+          filters:
+            branches:
+              only: master
