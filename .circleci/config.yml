@@ -26,6 +26,8 @@ jobs:
       name: node/default
     steps:
       - checkout
+      # - run: npm install
+      # - run: npm run build
       - run: npm install surge
       - run:
           name: Deploy if tests pass, build is succssful, and branch is Master
@@ -35,12 +37,9 @@ workflows:
   build:
     jobs:
       - build
-  deploy:
-    jobs:
-      - build
       - deploy-prod:
           requires:
             - build
-          filters:
-            branches:
-              only: master
+          # filters:
+          #   branches:
+          #     only: master
