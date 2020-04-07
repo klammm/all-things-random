@@ -19,7 +19,6 @@ jobs:
           paths:
             - ./node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
-      # run placeholder test
       - run: npm run build
   deploy-prod:
     executor:
@@ -40,6 +39,6 @@ workflows:
       - deploy-prod:
           requires:
             - build
-          # filters:
-          #   branches:
-          #     only: master
+          filters:
+            branches:
+              only: master
