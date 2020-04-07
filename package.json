@@ -30,7 +30,8 @@
   },
   "git": {
     "scripts": {
-      "pre-push": "npm run test && gatsby build"
+      "pre-push": "gatsby build",
+      "pre-commit": "npm run format"
     }
   },
   "keywords": [

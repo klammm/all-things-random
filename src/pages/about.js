@@ -26,9 +26,10 @@ const AboutPage = () => (
     </p>
     <p>
       My name is Kevin Lam, born and raised in the San Francisco Bay Area. I'm
-      currently a Software Engineer at Tech Holding. I previously worked at WalmartLabs and recently a startup
-      called Next Trucking. I have an interest in infrastructure, developer
-      productivity, and documenting things.
+      currently a Software Engineer at Tech Holding. I previously worked at
+      WalmartLabs and recently a startup called Next Trucking. I have an
+      interest in infrastructure, developer productivity, and documenting
+      things.
     </p>
     <h2>Contacting me</h2>
     <p>
