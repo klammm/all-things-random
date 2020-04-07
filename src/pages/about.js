@@ -3,39 +3,9 @@ import React from "react"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-// import githubLogo from "../images/Github-Mark-32px.png"
-// import linkedinLogo from "../images/In-Blue-34.png"
-// import twitterLogo from "../images/Twitter_Social_Icon_Rounded_Square_Color.png"
-
-// <div>
-//   <a href="https://github.com/klammm">
-//     <img
-//       class="About-socialIcon"
-//       src={githubLogo}
-//       alt="Link to my Github profile"
-//       width="32"
-//       height="32"
-//     />
-//   </a>
-//   <a href="https://www.linkedin.com/in/klam1993/">
-//     <img
-//       class="About-socialIcon"
-//       src={linkedinLogo}
-//       alt="Link to my LinkedIn profile"
-//       width="32"
-//       height="32"
-//     />
-//   </a>
-//   <a href="https://twitter.com/klammm93">
-//     <img
-//       class="About-socialIcon"
-//       src={twitterLogo}
-//       alt="Link to my Twitter profile"
-//       width="32"
-//       height="32"
-//     />
-//   </a>
-// </div>
+import githubLogo from "../images/github-logo.png"
+import linkedinLogo from "../images/linkedin-logo.png"
+import twitterLogo from "../images/twitter-logo.png"
 
 import { SEO_KEYWORDS } from "../constants"
 
@@ -56,10 +26,10 @@ const AboutPage = () => (
     </p>
     <p>
       My name is Kevin Lam, born and raised in the San Francisco Bay Area. I'm
-      currently a Software Engineer, looking for new opportunities in the Los
-      Angeles area. I previously worked at WalmartLabs and recently a startup
-      called Next Trucking. I have an interest in infrastructure, developer
-      productivity, and documenting things.
+      currently a Software Engineer at Tech Holding. I previously worked at
+      WalmartLabs and recently a startup called Next Trucking. I have an
+      interest in infrastructure, developer productivity, and documenting
+      things.
     </p>
     <h2>Contacting me</h2>
     <p>
@@ -71,6 +41,35 @@ const AboutPage = () => (
       <a href="https://github.com/klammm/all-things-random/issues">here</a>
       &nbsp;since that's really what you have. An issue.
     </p>
+    <div>
+      <a href="https://github.com/klammm">
+        <img
+          class="About-socialIcon"
+          src={githubLogo}
+          alt="Link to my Github profile"
+          width="32"
+          height="32"
+        />
+      </a>
+      <a href="https://www.linkedin.com/in/klam1993/">
+        <img
+          class="About-socialIcon"
+          src={linkedinLogo}
+          alt="Link to my LinkedIn profile"
+          width="32"
+          height="32"
+        />
+      </a>
+      <a href="https://twitter.com/klammm93">
+        <img
+          class="About-socialIcon"
+          src={twitterLogo}
+          alt="Link to my Twitter profile"
+          width="32"
+          height="32"
+        />
+      </a>
+    </div>
   </Layout>
 )
 

@@ -19,13 +19,14 @@ jobs:
           paths:
             - ./node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
-      # run placeholder test
       - run: npm run build
   deploy-prod:
     executor:
       name: node/default
     steps:
       - checkout
+      - run: npm install
+      - run: npm run build
       - run: npm install surge
       - run:
           name: Deploy if tests pass, build is succssful, and branch is Master
@@ -33,9 +34,6 @@ jobs:
 workflows:
   version: 2
   build:
-    jobs:
-      - build
-  deploy:
     jobs:
       - build
       - deploy-prod:
