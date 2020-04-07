@@ -3,9 +3,9 @@ import React from "react"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-import githubLogo from "../images/Github-Mark-32px.png"
-import linkedinLogo from "../images/In-Blue-34.png"
-import twitterLogo from "../images/Twitter_Social_Icon_Rounded_Square_Color.png"
+import githubLogo from "../images/github-logo.png"
+import linkedinLogo from "../images/linkedin-logo.png"
+import twitterLogo from "../images/twitter-logo.png"
 
 import { SEO_KEYWORDS } from "../constants"
 
