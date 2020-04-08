@@ -3,6 +3,8 @@ orbs:
   node: circleci/node@1.1.6
 jobs:
   build:
+    executor:
+      name: node/default
     steps:
       - checkout
       # Download and cache dependencies
@@ -19,6 +21,8 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
       - run: npm run build
   deploy-prod:
+    executor:
+      name: node/default
     steps:
       - checkout
       - run: npm install

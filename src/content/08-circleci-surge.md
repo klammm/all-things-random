@@ -16,7 +16,7 @@ In this post, I will talk about:
 * Getting Started with CircleCI
 * Deploying Merged Pull Requests with CircleCI
 * Additional code changes
-* Challenges I faced
+* Challenges I faced/Potential Errors
 * Next steps
 
 
@@ -128,4 +128,48 @@ jobs:
       name: node/default
 ```
 
-2. 
+2.
+
+
+
+
+### Challenges I faced/Potential Errors
+
+When removing the executors in my `config.yml`. Seems like it's necessary to have before moving on. 
+
+```
+#!/bin/sh -eo pipefail
+# ERROR IN CONFIG FILE:
+# [#/jobs] 10 schema violations found
+# Any string key is allowed as job name.
+# 1. [#/jobs/build] 0 subschemas matched instead of one
+# |   1. [#/jobs/build] only 1 subschema matches out of 2
+# |   |   1. [#/jobs/build] no subschema matched out of the total 2 subschemas
+# |   |   |   1. [#/jobs/build] 0 subschemas matched instead of one
+# |   |   |   |   1. [#/jobs/build] required key [docker] not found
+# |   |   |   |   2. [#/jobs/build] required key [machine] not found
+# |   |   |   |   3. [#/jobs/build] required key [macos] not found
+# |   |   |   2. [#/jobs/build] required key [executor] not found
+# |   |   |   |   A job must have one of `docker`, `machine`, `macos` or `executor` (which can provide docker/machine/macos information).
+# |   2. [#/jobs/build] expected type: String, found: Mapping
+# |   |   Job may be a string reference to another job
+# 2. [#/jobs/deploy-prod] 0 subschemas matched instead of one
+# |   1. [#/jobs/deploy-prod] only 1 subschema matches out of 2
+# |   |   1. [#/jobs/deploy-prod] no subschema matched out of the total 2 subschemas
+# |   |   |   1. [#/jobs/deploy-prod] 0 subschemas matched instead of one
+# |   |   |   |   1. [#/jobs/deploy-prod] required key [docker] not found
+# |   |   |   |   2. [#/jobs/deploy-prod] required key [machine] not found
+# |   |   |   |   3. [#/jobs/deploy-prod] required key [macos] not found
+# |   |   |   2. [#/jobs/deploy-prod] required key [executor] not found
+# |   |   |   |   A job must have one of `docker`, `machine`, `macos` or `executor` (which can provide docker/machine/macos information).
+# |   2. [#/jobs/deploy-prod] expected type: String, found: Mapping
+# |   |   Job may be a string reference to another job
+#
+# -------
+# Warning: This configuration was auto-generated to show you the message above.
+# Don't rerun this job. Rerunning will have no effect.
+false
+
+Exited with code exit status 1
+CircleCI received exit code 1
+```
