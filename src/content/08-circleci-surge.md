@@ -24,11 +24,11 @@ In this post, I will talk about:
 
 Let's recall what we've done so far earlier this 2020 year. In terms of workflow automation, I am able to [deploy my project using surge](http://klam.space/content/03-deploy-surge/). On top of that, I am automatically deploying every time a commit was pushed to a branch using the `pre-push` [git hook](https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks). We've been able to solve interesting challenges with that, however this automation also brings a new set of problems and challenges with it.
 
-> How can I not automatically deploy when I am pushing to a feature branch?
+- How can I not automatically deploy when I am pushing to a feature branch?
 
-> How can I stop the deployment if the lint and tests do not pass?
+- How can I stop the deployment if the lint and tests do not pass?
 
-> How can I only and automatically deploy when merged a pull request into master?
+- How can I only and automatically deploy when merged a pull request into master?
 
 These are all questions I asked myself after finishing the [git hooks integration](http://klam.space/content/05-github-integration/).
 
@@ -68,12 +68,6 @@ And.... voila! We now have a basic working CirleCI project pipeline.
 
 __TLDR__: Check out the finished `config.yml` [here](https://github.com/klammm/all-things-random/blob/master/.circleci/config.yml). Add your Surge login and token to CircleCI's environment variables(more info [here](https://surge.sh/help/integrating-with-circleci) Note that this is slightly out of date since we are using CircleCI 2.0 now).
 
-Before I start the steps on how to deploy merged pull requests with CirclCI, I want to give a shoutout to the resources that helped me to accomplish this in the first place. There were hurdles and challenges that I had to overcome to achieve this to be able to write about this for the internet. With that said, here they are:
-
-- Ashley Hebler's Deploying to Surge with CircleCI 2.0 guide on Github: https://github.com/ashley-hebler/circleci-surge
-- Surge's own guide to integrating with CircleCI: https://surge.sh/help/integrating-with-circleci
-- And of course, the CircleCI 2.0 docs: https://circleci.com/docs/2.0/
-
 Ok let's get this thing going. Let's break down what we'll be writing in our `config.yml` first.
 
 __First__: If you used CircleCI's pre-populated configuration, you should already have a CircleCI version number and an [orb](https://circleci.com/orbs/) with your particular language. Without getting too deep into CircleCI orbs, you can think of it as a reusable package of YAML configuration. If not, add these to the top of your `config.yml` file.
@@ -112,14 +106,14 @@ jobs:
       - run: npm run build
 ```
 
-I'll break down to the best I can what's going on in each line.
+I'll break it down to the best I can of what's going on in each line.
 
 ```
 jobs:
   build:
 ```
 
-1. We declare what jobs we want to create. In this case, I'm declaring a new job named `build`. Feel free to name the job whatever pleases you.
+1. We declare what jobs we want to create. Feel free to name the job whatever makes sense. In this case, I'm declaring a new job named `build`.
 
 ```
 jobs:
@@ -128,14 +122,223 @@ jobs:
       name: node/default
 ```
 
-2.
+2. To the extent of my knowledge, the `executor` is used to define the system environment for each job e.g. Docker, Linux, macOS, or windows. I believe what's happening here is that I am setting the environment to be the default node version, whatever that may be. Without doing too much of a deep dive since this seemed like it's own beast of a topic, check out [executor-types on CircleCI docs](https://circleci.com/docs/2.0/executor-types/) and the [Node orb usage](https://circleci.com/orbs/registry/orb/circleci/node).
 
+```
+jobs:
+  build:
+    executor:
+      name: node/default
+    steps:
+      - checkout
+```
 
+3. Now the juicy part of defining the commands of what our `build` job will perform under `steps`. Our first step here will be the `checkout` step. The `checkout` step is "A special step used to check out source code to the configured `path` (defaults to the `working_directory`). The reason this is a special step is because it is more of a helper function designed to make checking out code easy for you." as defined by [CircleCI](https://circleci.com/docs/2.0/configuration-reference/#checkout).
+
+```
+jobs:
+  build:
+    executor:
+      name: node/default
+    steps:
+      - checkout
+      # Download and cache dependencies
+      - restore_cache:
+          keys:
+          - v1-dependencies-{{ checksum "package.json" }}
+          # fallback to using the latest cache if no exact match is found
+          - v1-dependencies-
+```
+
+4. Our second step will be the [`restore_cache`](https://circleci.com/docs/2.0/configuration-reference/#restore_cache) step which restores the previously saved cache based on a key. In this case, we're naming our first cache key of `v1-dependencies-{{ checksum "package.json" }}` where the `checksum` will find an exact match to what we've defined which happens to be our `package.json` list of dependencies. Otherwise, we fall back to whatever was in the cache key of `v1-dependencies-`.
+
+```
+jobs:
+  build:
+    executor:
+      name: node/default
+    steps:
+      - checkout
+      # Download and cache dependencies
+      - restore_cache:
+          keys:
+          - v1-dependencies-{{ checksum "package.json" }}
+          # fallback to using the latest cache if no exact match is found
+          - v1-dependencies-
+
+      - run: npm install
+```
+
+5. Our next step will be to run a custom command. In this case, it's to run `npm install` which will install our list of dependencies.
+
+```
+jobs:
+  build:
+    executor:
+      name: node/default
+    steps:
+      - checkout
+      # Download and cache dependencies
+      - restore_cache:
+          keys:
+          - v1-dependencies-{{ checksum "package.json" }}
+          # fallback to using the latest cache if no exact match is found
+          - v1-dependencies-
+
+      - run: npm install
+      - save_cache:
+          paths:
+            - ./node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}
+```
+
+6. Now that we've installed our dependencies. We will be saving them in a cache hence the `save_cache` step. We set the `path` to save all of our `node_modules` dependencies to the `key` of `v1-dependencies-{{ checksum "package.json" }}`.
+
+```
+jobs:
+  build:
+    executor:
+      name: node/default
+    steps:
+      - checkout
+      # Download and cache dependencies
+      - restore_cache:
+          keys:
+          - v1-dependencies-{{ checksum "package.json" }}
+          # fallback to using the latest cache if no exact match is found
+          - v1-dependencies-
+
+      - run: npm install
+      - save_cache:
+          paths:
+            - ./node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}
+      - run: npm run build
+```
+
+7. Last but not least, we will finally run the step of building which runs our own npm script to build which is `gatsby build`.
+
+Awesome! we have our `build` job done now.
+
+__Third__: We'll be defining one more job. Now that we have our `build` job. We need to define a `deploy` job.
+
+Here it is here:
+
+```
+deploy-prod:
+  executor:
+    name: node/default
+  steps:
+    - checkout
+    - run: npm install
+    - run: npm run build
+    - run: npm install surge
+    - run:
+        name: Deploy if tests pass, build is succssful, and branch is Master
+        command: ./node_modules/surge/lib/cli.js --project ./public --domain klam.space
+```
+
+Here, we're using a lot of the same steps we had used earlier in our `build` job. The extra steps we are running in this `deploy` job is to install Surge and then to run the same command that we normally use to deploy.
+
+I chose to name this job `deploy-prod` because eventually in the future, I want to have a job that will deploy to a feature branch or a development branch for testing purposes to ensure what's live for my users will never be in a broken or unintended experimental state.
+
+So all together, our `config.yml` so far looks like this:
+
+```
+version: 2.1
+orbs:
+  node: circleci/node@1.1.6
+jobs:
+  build:
+    executor:
+      name: node/default
+    steps:
+      - checkout
+      # Download and cache dependencies
+      - restore_cache:
+          keys:
+          - v1-dependencies-{{ checksum "package.json" }}
+          # fallback to using the latest cache if no exact match is found
+          - v1-dependencies-
+
+      - run: npm install
+      - save_cache:
+          paths:
+            - ./node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}
+      - run: npm run build
+  deploy-prod:
+    executor:
+      name: node/default
+    steps:
+      - checkout
+      - run: npm install
+      - run: npm run build
+      - run: npm install surge
+      - run:
+          name: Deploy if tests pass, build is succssful, and branch is Master
+          command: ./node_modules/surge/lib/cli.js --project ./public --domain klam.space
+```
+
+__Fourth__: Now that we have our jobs defined. We need to set our workflow. As defined on the [CirclCI docs on workflow](https://circleci.com/docs/2.0/workflows/#overview) themselves, "A workflow is a set of rules for defining a collection of jobs and their run order. Workflows support complex job orchestration using a simple set of configuration keys to help you resolve failures sooner."
+
+```
+workflows:
+  version: 2
+  build:
+    jobs:
+      - build
+      - deploy-prod:
+          requires:
+            - build
+          filters:
+            branches:
+              only: master
+```
+
+So what I have here is I am using CircleCI version 2.0. I have defined the `build` workflow that is running 2 different jobs: the `build` job and the `deploy-prod` job. Under the `deploy-prod` job, I've also defined some conditions. Reading from top to bottom, the `deploy-prod` job requires the `build` job to be successful first before running. In addition, it will only run this `deploy-prod` job for the `master` branch.
+
+Whew! That was a lot to take in. Check out the finished `config.yml` [here](https://github.com/klammm/all-things-random/blob/master/.circleci/config.yml). Now you are able to build and deploy your project automatically with CircleCI and Surge.
+
+### Additional code changes
+
+Since my last blog post, I've made several additional, although not necessary, code changes to adjust this project to integrate with CircleCI.
+
+- Git Hooks
+
+Recall in a previous post about [Git hooks](http://klam.space/content/05-github-integration/) where we deployed to Surge on `pre-push` via the Git scripts. Now that we are deploying via CircleCI, we need to adjust our Git scripts accordingly.
+
+Here's what I have now:
+
+```
+"git": {
+  "scripts": {
+    "pre-push": "gatsby build",
+    "pre-commit": "npm run format"
+  }
+},
+```
+
+Now, I am building my project before every push to ensure I'm not pushing any failing builds or non-compilable code.
+
+In addition, I am running `npm run format` which runs [prettier](https://prettier.io/) before every commit is made so code styles and formats are cleaned up.
+
+- Case sensitive file system in Linux vs. Case insensitive file system in MacOS
+
+Upon attempting to build within CircleCI, I would always get a weird error of `Can't resolve '../images/Github-Mark-32px.png' in '/home/circleci/project/src/pages'`. After digging around and winding up with nothing in my search, I decided to open an [issue](https://github.com/gatsbyjs/gatsby/issues/22877) for the Gatsby team. Thanks to their helpful guidance, it happened to be an obscure error of case sensitive versus case insensitive file systems in Linux and Mac respectively. Thus, I changed all my image filenames to be lowercased which fixed the problem and unblocked me.
 
 
 ### Challenges I faced/Potential Errors
 
-When removing the executors in my `config.yml`. Seems like it's necessary to have before moving on. 
+I want to give a shoutout to the resources that helped me to accomplish this in the first place. There were hurdles and challenges that I had to overcome to achieve this to be able to write about this for the internet. With that said, here they are:
+
+- Ashley Hebler's Deploying to Surge with CircleCI 2.0 guide on Github: https://github.com/ashley-hebler/circleci-surge
+- Surge's own guide to integrating with CircleCI: https://surge.sh/help/integrating-with-circleci
+- And of course, the CircleCI 2.0 docs: https://circleci.com/docs/2.0/
+
+Another challenge I had here was really questioning why I needed an executor. As an engineer, I slowly removed pieces of the configuration to see which lines were absolutely necessary and which lines would not break. Well this was one of them below:
+
+Removing the executors in my `config.yml`. Seems like it's necessary to have before moving on.
 
 ```
 #!/bin/sh -eo pipefail
@@ -173,3 +376,11 @@ false
 Exited with code exit status 1
 CircleCI received exit code 1
 ```
+
+### Next steps
+
+From navigating out of date documentation to searching for similar existing or closed issues to a specific environment like mine, it took a lot of effort to configure my project with CircleCI however it is by no means complete in how I envision it.
+
+My next steps with CircleCI would be to add more jobs of testing(unit testing, integration tests, and even accessibility testing) and linting to the workflows. I also mentioned briefly of eventually having a job that would deploy to a staging environment for testing purposes. In addition, in the far future, there is capability to configure with Docker after I do an exploration dive into Docker and its fun capabilities.
+
+Thanks all and stay healthy! 😷
