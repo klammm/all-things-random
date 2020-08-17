@@ -24,9 +24,17 @@
     "typography-theme-fairy-gates": "^0.16.19"
   },
   "devDependencies": {
+    "eslint": "^7.2.0",
+    "eslint-config-airbnb": "^18.2.0",
+    "eslint-loader": "^4.0.2",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-jsx-a11y": "^6.3.1",
+    "eslint-plugin-react": "^7.20.6",
+    "eslint-plugin-react-hooks": "^4.0.0",
+    "gatsby-plugin-eslint": "^2.0.8",
     "git-scripts": "^0.2.1",
     "prettier": "^1.16.4",
-    "surge": "^0.21.3"
+    "surge": "^0.21.6"
   },
   "git": {
     "scripts": {
