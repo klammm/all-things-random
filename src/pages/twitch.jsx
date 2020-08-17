@@ -11,7 +11,9 @@ const TwitchPage = () => (
       title="Twitch"
       keywords={[...SEO_KEYWORDS.TECH, ...SEO_KEYWORDS.TWITCH]}
     />
-    <p>Here&apos;s me potentially playing video games and heavily procrastinating</p>
+    <p>
+      Here&apos;s me potentially playing video games and heavily procrastinating
+    </p>
     <iframe
       src="https://player.twitch.tv/?channel=smokymcbear"
       height="720"

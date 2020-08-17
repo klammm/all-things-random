@@ -19,30 +19,27 @@ const AboutPage = () => (
     />
     <h2>About Me</h2>
     <p>
-      Here&apos;s who I am so you know I&apos;m not some crazy guy locked up in a
-      basement. Also, since you know who I am now, these are my biases and my
+      Here&apos;s who I am so you know I&apos;m not some crazy guy locked up in
+      a basement. Also, since you know who I am now, these are my biases and my
       nurture environment. So whatever I say, take it with a grain of salt and
       keep in mind the biases I am conditioned to have.
     </p>
     <p>
-      My name is Kevin Lam, born and raised in the San Francisco Bay Area. I&apos;m
-      currently a Software Engineer at Tech Holding. I previously worked at
-      WalmartLabs and recently a startup called Next Trucking. I have an
-      interest in infrastructure, developer productivity, and documenting
+      My name is Kevin Lam, born and raised in the San Francisco Bay Area.
+      I&apos;m currently a Software Engineer at Tech Holding. I previously
+      worked at WalmartLabs and recently a startup called Next Trucking. I have
+      an interest in infrastructure, developer productivity, and documenting
       things.
     </p>
     <h2>Contacting me</h2>
     <p>
       Feel free to contact me if you want to talk about life or if you want to
-      hang out. I don&apos;t really support comments in this space for the meantime.
-      If you have a question or comment, I&apos;m on
-      {' '}
-      <a href="https://twitter.com/klammm93">Twitter</a>
-      {' '}
-      so don&apos;t be shy and
-      give a shoutout to me! Or if you have an issue, please raise it up&nbsp;
-      <a href="https://github.com/klammm/all-things-random/issues">here</a>
-      {' '}
+      hang out. I don&apos;t really support comments in this space for the
+      meantime. If you have a question or comment, I&apos;m on{' '}
+      <a href="https://twitter.com/klammm93">Twitter</a> so don&apos;t be shy
+      and give a shoutout to me! Or if you have an issue, please raise it
+      up&nbsp;
+      <a href="https://github.com/klammm/all-things-random/issues">here</a>{' '}
       since that&apos;s really what you have. An issue.
     </p>
     <div>

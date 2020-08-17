@@ -10,7 +10,7 @@ import { SEO_KEYWORDS } from '../constants';
 import '../styles/blog.css';
 
 const BlogPage = ({ data }) => {
-  const renderBlogPosts = (edges) => (
+  const renderBlogPosts = (edges) =>
     edges.map(({ node }) => (
       <div className="BlogPost-container" key={node.id}>
         <Link to={node.fields.slug} className="BlogPost-title">
@@ -29,8 +29,7 @@ const BlogPage = ({ data }) => {
         </div>
         <p>{node.excerpt}</p>
       </div>
-    ))
-  );
+    ));
 
   return (
     <Layout>
@@ -53,21 +52,23 @@ BlogPage.propTypes = {
   data: PropTypes.shape({
     allMarkdownRemark: PropTypes.shape({
       totalCount: PropTypes.string,
-      edges: PropTypes.arrayOf(PropTypes.shape({
-        id: PropTypes.string,
-        excerpt: PropTypes.string,
-        timeToRead: PropTypes.string,
-        fields: PropTypes.shape({
-          slug: PropTypes.string,
-        }),
-        frontmatter: PropTypes.shape({
-          title: PropTypes.string,
-          date: PropTypes.string,
-        }),
-        wordCount: PropTypes.shape({
-          words: PropTypes.number,
-        }),
-      })),
+      edges: PropTypes.arrayOf(
+        PropTypes.shape({
+          id: PropTypes.string,
+          excerpt: PropTypes.string,
+          timeToRead: PropTypes.string,
+          fields: PropTypes.shape({
+            slug: PropTypes.string,
+          }),
+          frontmatter: PropTypes.shape({
+            title: PropTypes.string,
+            date: PropTypes.string,
+          }),
+          wordCount: PropTypes.shape({
+            words: PropTypes.number,
+          }),
+        })
+      ),
     }),
   }).isRequired,
 };

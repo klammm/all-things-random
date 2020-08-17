@@ -1,6 +1,6 @@
 import { API } from '../constants';
 
-const fetchMemes = () => (
+const fetchMemes = () =>
   fetch(API.REDDIT_URL)
     .then((res) => res.json())
     .then((response) => {
@@ -12,7 +12,6 @@ const fetchMemes = () => (
       }
       return null;
     })
-    .catch((err) => new Error('Error Generating Memes: ', err))
-);
+    .catch((err) => new Error('Error Generating Memes: ', err));
 
 export default fetchMemes;
