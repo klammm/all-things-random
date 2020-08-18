@@ -15,9 +15,9 @@ In this post, I will talk about:
 * Intro to Continuous Integration
 * Getting Started with CircleCI
 * Deploying Merged Pull Requests with CircleCI
-* Additional code changes
-* Challenges I faced/Potential Errors
-* Next steps
+* Additional Code Changes
+* Challenges I Faced/Potential Errors
+* Next Steps
 
 
 ### Recall: Deploying with Surge
@@ -300,7 +300,7 @@ So what I have here is I am using CircleCI version 2.0. I have defined the `buil
 
 Whew! That was a lot to take in. Check out the finished `config.yml` [here](https://github.com/klammm/all-things-random/blob/master/.circleci/config.yml). Now you are able to build and deploy your project automatically with CircleCI and Surge.
 
-### Additional code changes
+### Additional Code Changes
 
 Since my last blog post, I've made several additional, although not necessary, code changes to adjust this project to integrate with CircleCI.
 
@@ -328,7 +328,7 @@ In addition, I am running `npm run format` which runs [prettier](https://prettie
 Upon attempting to build within CircleCI, I would always get a weird error of `Can't resolve '../images/Github-Mark-32px.png' in '/home/circleci/project/src/pages'`. After digging around and winding up with nothing in my search, I decided to open an [issue](https://github.com/gatsbyjs/gatsby/issues/22877) for the Gatsby team. Thanks to their helpful guidance, it happened to be an obscure error of case sensitive versus case insensitive file systems in Linux and Mac respectively. Thus, I changed all my image filenames to be lowercased which fixed the problem and unblocked me.
 
 
-### Challenges I faced/Potential Errors
+### Challenges I Faced/Potential Errors
 
 I want to give a shoutout to the resources that helped me to accomplish this in the first place. There were hurdles and challenges that I had to overcome to achieve this to be able to write about this for the internet. With that said, here they are:
 
@@ -377,7 +377,7 @@ Exited with code exit status 1
 CircleCI received exit code 1
 ```
 
-### Next steps
+### Next Steps
 
 From navigating out of date documentation to searching for similar existing or closed issues to a specific environment like mine, it took a lot of effort to configure my project with CircleCI however it is by no means complete in how I envision it.
 

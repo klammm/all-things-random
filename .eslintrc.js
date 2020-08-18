@@ -1,10 +1,10 @@
 module.exports = {
-  "globals": {
-    "fetch": false
+  globals: {
+    fetch: false
   },
-  "env"" {
-    "browser": true,
-    "node": true,
-  }
-  "extends": ["airbnb", "airbnb/hooks", "prettier", "prettier/react"]
+  env: {
+    browser: true,
+    node: true,
+  },
+  extends: ["airbnb", "airbnb/hooks", "prettier", "prettier/react"]
 };
