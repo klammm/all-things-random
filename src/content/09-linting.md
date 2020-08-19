@@ -51,21 +51,26 @@ Here within our newly created `.eslintrc.js` file, we are able to set our desire
 
 Here's my example configuration that I'm using for this Gatsby application:
 
-`.eslintrc.js`
 ```
+// .eslintrc.js
 module.exports = {
-  "globals": {
-    "fetch": false
+  globals: {
+    fetch: false
   },
-  "env"" {
-    "browser": true,
-    "node": true,
+  parser: "babel-eslint",
+  env: {
+    browser: true,
+    node: true,
   }
-  "extends": ["airbnb", "airbnb/hooks", "prettier", "prettier/react"]
+  extends: ["airbnb", "airbnb/hooks", "prettier", "prettier/react"]
 };
 ```
 
 In this configuration going from top to bottom, I am setting as part of my global variables the `fetch` variable as `fetch` is a global method as part of the Browser API. Therefore, `fetch` does not need to be defined so we are silencing the ESLint warning([no undefined variables rules](https://eslint.org/docs/rules/no-undef)).
+
+Next up within the `parser` key, we are using [`babel-eslint`](https://github.com/babel/babel-eslint) as our ESLint parser over the default ESLint parser since the default parser [only supports the latest final ECMAScript standard](https://github.com/eslint/eslint/blob/a675c89573836adaf108a932696b061946abf1e6/README.md#what-about-experimental-features) and do not support experimental features(such as [optional chaining](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining) and [nullish coalescing operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing_operator)).
+
+_Note: This `parser` section is completely optional._  
 
 Next up within the `env` key, we are specifying which environments that are script is designed to run in. As stated from the [ESLint docs](https://eslint.org/docs/user-guide/configuring), "Each environment brings with it a certain set of predefined global variables". With that said, we are pulling in the global variables defined by the Browser API and also Node's global variables.
 
@@ -73,5 +78,74 @@ Next up within the `extends` key, we are specifying which third-party rules to u
 
 So for my case here, I am extending from [airbnb's eslint plugin](https://www.npmjs.com/package/eslint-config-airbnb), [airbnb's hooks eslint plugin](https://www.npmjs.com/package/eslint-plugin-react-hooks), [prettier's eslint plugin](https://github.com/prettier/eslint-config-prettier), and [prettier's react eslint plugin](https://github.com/yannickcr/eslint-plugin-react).
 
-
 ### ESLint Integration with Gatsby
+
+__TLDR__: Instructions found [here](https://github.com/mongkuen/gatsby-plugin-eslint#gatsby-plugin-eslint).
+
+To integrate ESLint with Gatsby, we will have to do the following:
+1. Install [`gatsby-plugin-eslint`](https://github.com/mongkuen/gatsby-plugin-eslint#gatsby-plugin-eslint) into our devDependencies
+2. Add the `gatsby-plugin-eslint` plugin to our `gatsby-config.js`
+
+First, we'll install the `gatsby-plugin-eslint` into our devDependencies.
+
+`npm install --save-dev gatsby-plugin-eslint`
+
+or
+
+`yarn add --dev gatsby-plugin-eslint`
+
+Second, we'll add our newly installed plugin into `gatsby-config.js`. Here's what that looks like:
+
+```
+// gatsby-config.js
+module.exports = {
+  plugins: [
+    {
+      resolve: 'gatsby-plugin-eslint',
+      options: {
+        test: /\.js$|\.jsx$/,
+        exclude: /(node_modules|.cache|public)/,
+        stages: ['develop', 'build-javascript'],
+        options: {
+          emitWarning: true,
+          emitError: true,
+          failOnError: true,
+        }
+      }
+    }
+  ],
+}
+```
+
+Starting from top to bottom, the `test` key that I am setting here are to test only `.js` or `.jsx` files.
+
+The `exclude` key here is excluding these directories: `node_modules`, `.cache`, and `public/`. I am excluding these from being parsed in ESLint since these directories do not need to be linted.
+
+The `stages` key is set for which stage would I like linting to be enabled. Here, I've set the linter to be active during the `'develop'` and `'build-javascript'` stage. Therefore, ESLint will do its job during the developing phase and when I am attempting to build my bundle.
+
+The `options` key is used to set any additional configuration. Here, I would like ESLint to emit a warning and an error if any of the code does not satisfy our current lint rules. In addition, I am also setting ESLint to fail the `develop` stage if an error has occurred.
+
+I've added several configuration options for my own personal development style. If you would like to use default options, you could specify the plugin in a more easier, verbose way.
+
+```
+// gatsby-config.js
+
+module.exports = {
+  plugins: [
+    'gatsby-plugin-eslint'
+  ]
+}
+```
+
+### Airbnb ESLint Style Guide
+
+So the ESLint style guide that we are aiming for will be [Airbnb's ESLint rules](https://github.com/airbnb/javascript). They have the most comprehensive style guide and they were one of the first organizations to create their own eslint style guide. Today, it's one of the most popular in the industry and some of their popular features include [trailing commas](https://github.com/airbnb/javascript#commas) and [semicolons](https://github.com/airbnb/javascript#semicolons) as part of linting rules.
+
+### ESLint Integration with Prettier
+
+
+
+### Gotchas
+
+
+### Next Steps
