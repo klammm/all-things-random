@@ -160,3 +160,5 @@ It seems that I am not the first to have faced this issue and as a result, there
 Next steps to take with my new linter is to integrate this linting step with the CI/CD pipeline that we created in our [earlier blog post](http://klam.space/content/08-circleci-surge/). Before we build our production bundle, we want to ensure code quality. Therefore, an additional linting job could be added before building the bundle to catch any errors, bugs, or any suspicious code.
 
 Thanks for reading and stay cool in this heat!
+
+For a list of all the changes I did, check out my [PR here](https://github.com/klammm/all-things-random/pull/18).
