@@ -1,11 +1,15 @@
 ---
 title: "Linting: The assistance we need, but don't deserve. Integrating Airbnb's ESLint rules with Gatsby and Prettier"
-date: "2020-06-02"
+date: "2020-08-20"
 keywords:
 - 'linting'
 - 'airbnb'
 - 'eslint'
 - 'prettier'
+- 'config'
+- 'devDependency'
+- 'plugin'
+- 'style guide'
 
 ---
 
@@ -143,9 +147,16 @@ So the ESLint style guide that we are aiming for will be [Airbnb's ESLint rules]
 
 ### ESLint Integration with Prettier
 
-
+To integrate ESLint with Prettier, we will be using the [`eslint-config-prettier`](https://github.com/prettier/eslint-config-prettier) eslint rule. `eslint-config-prettier` is an eslint config that will _turn off_ rules that conflict with Prettier.
 
 ### Gotchas
 
+So you must be asking yourself, "Why do we have to turn off the rules of prettier? What's the point of having Prettier if we are barely using it?" As I was integrating ESLint into this current project, I found that the ESLint rules that I have set is conflicting with the automated formatting from Prettier. For example, I would fix all the ESLint errors before committing my code. Once I have made the commit, I have a [`pre-commit` hook](https://github.com/klammm/all-things-random/blob/master/package.json#L34) that will prettify my code for me. However, prettifying the code will conflict against ESLint rules and therefore, I will have to fix and commit my code again and again.
+
+It seems that I am not the first to have faced this issue and as a result, there is an ESLint config plugin that was created for this very problem.
 
 ### Next Steps
+
+Next steps to take with my new linter is to integrate this linting step with the CI/CD pipeline that we created in our [earlier blog post](http://klam.space/content/08-circleci-surge/). Before we build our production bundle, we want to ensure code quality. Therefore, an additional linting job could be added before building the bundle to catch any errors, bugs, or any suspicious code.
+
+Thanks for reading and stay cool in this heat!
