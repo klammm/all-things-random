@@ -1,12 +1,10 @@
-import React from 'react';
+import * as React from "react"
 
-import '../styles/footer.css';
-
-const currentYear = new Date().getFullYear();
+import "../styles/footer.css";
 
 const Footer = () => (
   <footer className="Footer">
-    {`© ${currentYear}, Built with `}
+    {`© ${new Date().getFullYear()}, Built with `}
     <a href="https://www.gatsbyjs.org">Gatsby</a>
   </footer>
 );
