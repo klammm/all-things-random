@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
-import fetchMemes from '../utils/meme-fetch';
+import fetchMemes from "../utils/meme-fetch";
 
-import '../styles/meme.css';
+import "../styles/meme.css";
 
 class GenerateMemes extends Component {
   constructor(props) {
