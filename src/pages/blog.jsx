@@ -19,12 +19,10 @@ const BlogPage = ({ data }) => {
         <div className="BlogPost-card">
           <span className="BlogPost-card-text">{node.frontmatter.date}</span>
           <span className="BlogPost-card-text">
-            {node.wordCount.words}
-            &nbps;words
+            {`${node.wordCount.words} words`}
           </span>
           <span className="BlogPost-card-text">
-            {node.timeToRead}
-            &nbps;min read
+            {`${node.timeToRead} min read`}
           </span>
         </div>
         <p>{node.excerpt}</p>
@@ -38,8 +36,7 @@ const BlogPage = ({ data }) => {
         keywords={[...SEO_KEYWORDS.TECH, ...SEO_KEYWORDS.BLOG]}
       />
       <h2>
-        {data.allMarkdownRemark.totalCount}
-        &nbps;Random Blog Posts
+        {`${data.allMarkdownRemark.totalCount} Random Blog Posts`}
       </h2>
       {renderBlogPosts(data.allMarkdownRemark.edges)}
     </Layout>

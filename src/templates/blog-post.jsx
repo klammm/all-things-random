@@ -25,12 +25,10 @@ const BlogPost = ({ data }) => {
       <div className="BlogPost-content">
         <span className="BlogPost-content-text">{post.frontmatter.date}</span>
         <span className="BlogPost-content-text">
-          {post.wordCount.words}
-          &npbs;words
+          {`${post.wordCount.words} words`}
         </span>
         <span className="BlogPost-content-text">
-          {post.timeToRead}
-          &npbs;min read
+          {`${post.timeToRead} min read`}
         </span>
       </div>
       <div dangerouslySetInnerHTML={{ __html: post.html }} />
