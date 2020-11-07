@@ -1,14 +1,14 @@
 /* eslint-disable react/no-danger */
-import React from 'react';
-import PropTypes from 'prop-types';
-import { graphql } from 'gatsby';
+import React from "react";
+import PropTypes from "prop-types";
+import { graphql } from "gatsby";
 
-import Layout from '../components/layout';
-import SEO from '../components/seo';
+import Layout from "../components/layout";
+import SEO from "../components/seo";
 
-import { SEO_KEYWORDS } from '../constants';
+import { SEO_KEYWORDS } from "../constants";
 
-import '../styles/blog.css';
+import "../styles/blog.css";
 
 const BlogPost = ({ data }) => {
   const post = data.markdownRemark;
