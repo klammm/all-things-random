@@ -35,9 +35,7 @@ const BlogPage = ({ data }) => {
         title="Blog"
         keywords={[...SEO_KEYWORDS.TECH, ...SEO_KEYWORDS.BLOG]}
       />
-      <h2>
-        {`${data.allMarkdownRemark.totalCount} Random Blog Posts`}
-      </h2>
+      <h2>{`${data.allMarkdownRemark.totalCount} Random Blog Posts`}</h2>
       {renderBlogPosts(data.allMarkdownRemark.edges)}
     </Layout>
   );
