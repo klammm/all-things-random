@@ -1,15 +1,15 @@
-import React from 'react';
+import React from "react";
 
-import Layout from '../components/layout';
-import SEO from '../components/seo';
+import Layout from "../components/layout";
+import SEO from "../components/seo";
 
-import githubLogo from '../images/github-logo.png';
-import linkedinLogo from '../images/linkedin-logo.png';
-import twitterLogo from '../images/twitter-logo.png';
+import githubLogo from "../images/github-logo.png";
+import linkedinLogo from "../images/linkedin-logo.png";
+import twitterLogo from "../images/twitter-logo.png";
 
-import { SEO_KEYWORDS } from '../constants';
+import { SEO_KEYWORDS } from "../constants";
 
-import '../styles/about.css';
+import "../styles/about.css";
 
 const AboutPage = () => (
   <Layout>
@@ -35,11 +35,11 @@ const AboutPage = () => (
     <p>
       Feel free to contact me if you want to talk about life or if you want to
       hang out. I don&apos;t really support comments in this space for the
-      meantime. If you have a question or comment, I&apos;m on{' '}
+      meantime. If you have a question or comment, I&apos;m on{" "}
       <a href="https://twitter.com/klammm93">Twitter</a> so don&apos;t be shy
       and give a shoutout to me! Or if you have an issue, please raise it
       up&nbsp;
-      <a href="https://github.com/klammm/all-things-random/issues">here</a>{' '}
+      <a href="https://github.com/klammm/all-things-random/issues">here</a>{" "}
       since that&apos;s really what you have. An issue.
     </p>
     <div>

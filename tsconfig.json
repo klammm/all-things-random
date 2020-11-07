@@ -1,0 +1,17 @@
+{
+  "include": ["./src/**/*"],
+  "exclude": ["node_modules", "public", ".cache"],
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "esnext",
+    "lib": ["dom", "es2015", "es2017"],
+    "allowJs": true,
+    "checkJs": false,
+    "jsx": "preserve",
+    "noEmit": true,
+    "skipLibCheck": true,
+    "removeComments": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+  }
+}

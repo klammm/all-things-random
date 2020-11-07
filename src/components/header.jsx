@@ -1,8 +1,8 @@
-import { Link } from 'gatsby';
-import PropTypes from 'prop-types';
-import React from 'react';
+import { Link } from "gatsby";
+import PropTypes from "prop-types";
+import React from "react";
 
-import '../styles/header.css';
+import "../styles/header.css";
 
 const Header = ({ siteTitle }) => (
   <header className="Header">
@@ -32,9 +32,9 @@ Header.propTypes = {
 };
 
 Header.defaultProps = {
-  siteTitle: '',
+  siteTitle: "",
 };
 
-Header.displayName = 'Header';
+Header.displayName = "Header";
 
 export default Header;

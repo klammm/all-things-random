@@ -1,11 +1,11 @@
-import React from 'react';
+import React from "react";
 
-import Layout from '../components/layout';
-import SEO from '../components/seo';
+import Layout from "../components/layout";
+import SEO from "../components/seo";
 
-import { SEO_KEYWORDS } from '../constants';
+import { SEO_KEYWORDS } from "../constants";
 
-import GenerateMemes from '../components/meme-generator';
+import GenerateMemes from "../components/meme-generator";
 
 const IndexPage = () => (
   <Layout>
