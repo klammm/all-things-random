@@ -92,7 +92,6 @@ Here are the options that I am passing for this application's `tsconfig.json`:
     "removeComments": true,
     "noImplicitAny": true,
     "strictNullChecks": true,
-    "skipLibCheck": true,
   }
 }
 ```
@@ -137,20 +136,93 @@ The `jsx` controls the output of JSX to JS files. For my case here, I opted for 
 
 `"noEmit": true,`
 
+With this setting, I've opted for the Typescript compiler to not output into Javascript files during the compile process. That way, we can let Gatsby handle the Typescript conversion process.
 
+`"skipLibCheck": true,`
 
-4. add a type-check task in the package.json scrips
+`skipLibCheck` option will exclude our general `lib` folder which usually stands for libraries. In our case, it will exclude type-checking the entire `node_modules` directory. Typescript will only type-check code that we directly import and use in our code.
+
+`"removeComments": true,`
+
+This option will remove comments from the resulting Javascript.
+
+`"noImplicitAny": true,`
+
+This option will issue an error when Typescript has to infer an `any` type. In cases where there is no type declared, Typescript will default to the `any` type. Situations this would happen would be function arguments, where you wouldn't know what type would be passed in from the function invoker.
+
+`"strictNullChecks": true,`
+
+This option will issue an error when there is anywhere in the code that `undefined` and `null` might appear. Therefore, I am opting to not use any `undefined` or `null` values. This case happens mostly when attempting to retrieve object properties that you don't know exist yet or not.
+
+4. Add type-check task in `package.json` scripts
+
+`"type-check": "tsc --noEmit",`
+
+Next, I add a type checking task in the list of `package.json` scripts so that I and other project contributors may run a type-check easily in the future. I've also opted to add the type check to my build process.
+
+My new build script looks like this now:
+
+`"build": "tsc --noEmit && gatsby build",`
+
+So let's disect this line `tsc --noEmit` a bit. `tsc` is invoking the Typescript compiler and I am passing in the flag `--noEmit` which does not emit output JS files. Therefore, we are using the advantages of type-checking without compiling our Typescript into JS(we're letting Gatsby/Babel handle that for us).
 
 5. Migrate first component to typescript
+
+Choose the simplest component and also choose a leaf component in your React tree. A leaf component is a component that is not rendering any other children. It is at the bottom level of the React virtual DOM tree. The advantage of this is that there is no state or props being passed through since there are no child components.
+
+For my case, I opted for the [`Footer` component](https://github.com/klammm/all-things-random/blob/master/src/components/footer.jsx) since it was not rendering any other component.  
+
+Before:
+```
+import React from 'react';
+
+import '../styles/footer.css';
+
+const currentYear = new Date().getFullYear();
+
+const Footer = () => (
+  <footer className="Footer">
+    {`© ${currentYear}, Built with `}
+    <a href="https://www.gatsbyjs.org">Gatsby</a>
+  </footer>
+);
+
+export default Footer;
+```
+
+After:
+```
+import * as React from "react"
+
+import "../styles/footer.css";
+
+const Footer = (): JSX.Element => (
+  <footer className="Footer">
+    {`© ${new Date().getFullYear()}, Built with `}
+    <a href="https://www.gatsbyjs.org">Gatsby</a>
+  </footer>
+);
+
+export default Footer;
+```
+
+Since the Footer component was not taking any props, it was very easy to convert into Typescript. All I did was provide the type annotation for the return type of the function.
+
+Another interesting line I'd like to bring up is the default import I made at the top.
+
+`import * as React from "react"`
+
+Typescript is quite [strict](https://www.typescriptlang.org/docs/handbook/modules.html#import-the-entire-module-into-a-single-variable-and-use-it-to-access-the-module-exports) when it comes to default imports. There is special config that would allow us to use default imports, but importing React as such gives us a good workaround.
 
 Note: Typescript migration _should_ be incremental. It should happen in short segments at a time and not all at once(not recommended unless you have a very small codebase).
 
 
 ### Typescript pros/cons
 
-I've heard mixed opinions about Typescript when speaking to my team about incorporating Typescript into a project.
+I've heard mixed opinions about Typescript when speaking to my team about incorporating Typescript into a project. Here are some of their thoughts:
 
 #### Cons
+
 "Dev buy-in is way too high"
 
 "We aren't having a type error problem. Do we really need this?"
@@ -179,3 +251,7 @@ I've heard mixed opinions about Typescript when speaking to my team about incorp
 "I can refactor Typescript code a lot faster than JS"
 
 "I don't have to write trivial unit tests on type checking. I can finally write business logic unit tests"
+
+### Next Steps
+
+That was only the first step with integrating Typescript into this Gatsby application. Next, we'll incrementally migrate more components over to Typescript over time and also create our type declarations file for our external libraries.
