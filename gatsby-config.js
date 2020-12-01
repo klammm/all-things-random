@@ -1,3 +1,9 @@
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV}`
+});
+
+console.log("dotenv >>>", process.env.FOO)
+
 module.exports = {
   siteMetadata: {
     title: `Klam`,
@@ -24,7 +30,8 @@ module.exports = {
         start_url: `/`,
         background_color: `#663399`,
         theme_color: `#663399`,
-        display: `minimal-ui`
+        display: `minimal-ui`,
+        icon: 'src/images/space-icon.png'
       },
     },
     {

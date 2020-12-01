@@ -5,6 +5,7 @@
   "version": "0.1.0",
   "author": "Kevin Lam <kevinlam.sf@gmail.com>",
   "dependencies": {
+    "dotenv": "^8.2.0",
     "gatsby": "^2.24.85",
     "gatsby-image": "^2.0.35",
     "gatsby-plugin-manifest": "^2.0.25",

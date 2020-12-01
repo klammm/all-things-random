@@ -19,7 +19,13 @@ jobs:
           paths:
             - ./node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
+      - run:
+          name: Create environment variables
+          command: |
+            touch .env.production
+            echo "FOO=$FOO" > .env.production
       - run: npm run build
+
   deploy-prod:
     executor:
       name: node/default
