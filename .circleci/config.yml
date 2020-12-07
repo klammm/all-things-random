@@ -24,6 +24,7 @@ jobs:
           command: |
             touch .env.production
             echo "FOO=$FOO" > .env.production
+            echo "GA_TRACKING_ID=$GA_TRACKING_ID" >> .env.production
       - run: npm run build
 
   deploy-prod:

@@ -2,8 +2,6 @@ require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`
 });
 
-console.log("dotenv >>>", process.env.FOO)
-
 module.exports = {
   siteMetadata: {
     title: `Klam`,
