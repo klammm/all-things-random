@@ -72,3 +72,5 @@ After taking a look into the [Twitch API](https://dev.twitch.tv/docs/api), I rea
 For now, this iframe satisfies my initial goal of placing my Twitch stream on this website for all you beautiful people to watch.
 
 Here's the finished [product](http://klam.space/twitch). I hope you enjoy watching me play video games!
+
+A complete list of changes can be found [here](https://github.com/klammm/all-things-random/pull/11).

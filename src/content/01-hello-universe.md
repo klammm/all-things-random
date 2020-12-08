@@ -91,3 +91,5 @@ Having to do something and work towards something without literally going crazy.
 ### Conclusion
 
 if you've made it this far, thanks for reading my first post. This is totally a work in progress of unapologetically testing out new technologies and talking about random crap. Please feel free to leave any comments in my Github issues or hit me up on Twitter. You'll find how to contact me through the [about page](#about).
+
+A complete list of changes can be found [here](https://github.com/klammm/all-things-random/pull/3).

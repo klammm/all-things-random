@@ -169,3 +169,5 @@ Overall, it is a good starter to having SEO for any sites being generated throug
 - leverage more of Gatsby's SEO component to include a description, lang, meta, and title
 
 In the future, we will leverage more of Gatsby's SEO component to include more of the props it is already expecting such as `description`, `lang`, `meta`, and `title`. These are all attributes that can be added as meta elements, except for the `meta` prop which concatenates extra meta elements that might have been pre-defined.
+
+A complete list of changes can be found [here](https://github.com/klammm/all-things-random/pull/12).

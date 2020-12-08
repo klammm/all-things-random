@@ -63,3 +63,5 @@ In addition, I bought and registered my custom domain name on [Namecheap](https:
 ### Conclusion
 
 And that's it! Surge is an incredibly easy tool to get started with and it assumes you have no other deployment configurations you need to add on to just get your website deployed and live in a matter of minutes. Oh and last but not least, it's free 😉
+
+A complete list of changes can be found [here](https://github.com/klammm/all-things-random/pull/7).

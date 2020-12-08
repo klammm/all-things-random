@@ -165,3 +165,5 @@ Some next steps would be to start placing API keys/secrets into the `.env` file 
 This is a good introduction to security practices when developing for the web. Ideally, we wouldn't need any protection but we live in a world where others might want to exploit vulnerabilities. 
 
 Thanks for reading and stay safe! 
+
+A complete list of changes can be found [here](https://github.com/klammm/all-things-random/pull/20).
