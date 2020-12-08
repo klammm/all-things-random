@@ -255,3 +255,5 @@ I've heard mixed opinions about Typescript when speaking to my team about incorp
 ### Next Steps
 
 That was only the first step with integrating Typescript into this Gatsby application. Next, we'll incrementally migrate more components over to Typescript over time and also create our type declarations file for our external libraries.
+
+A complete list of changes can be found [here](https://github.com/klammm/all-things-random/pull/19).

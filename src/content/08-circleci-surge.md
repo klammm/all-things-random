@@ -384,3 +384,5 @@ From navigating out of date documentation to searching for similar existing or c
 My next steps with CircleCI would be to add more jobs of testing(unit testing, integration tests, and even accessibility testing) and linting to the workflows. I also mentioned briefly of eventually having a job that would deploy to a staging environment for testing purposes. In addition, in the far future, there is capability to configure with Docker after I do an exploration dive into Docker and its fun capabilities.
 
 Thanks all and stay healthy! 😷
+
+A complete list of changes can be found [here](https://github.com/klammm/all-things-random/pull/17).

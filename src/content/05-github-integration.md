@@ -93,3 +93,5 @@ Failed to exec pre-push hook script
 ```
 
 I solved this particular error by deleting my `node-modules`, `package-lock.json`, and `yarn.lock` and reinstalling my node modules with `npm install`.
+
+A complete list of changes can be found [here](https://github.com/klammm/all-things-random/pull/9).
