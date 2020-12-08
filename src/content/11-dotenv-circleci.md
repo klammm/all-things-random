@@ -7,6 +7,8 @@ keywords:
 - 'CircleCI'
 - 'environment variable'
 - 'security'
+- 'API key'
+- 'environment'
 
 ---
 
@@ -156,4 +158,10 @@ Whew, catastrophe avoided there in one simple line.
 
 ### Conclusion
 
+Congratulations on creating your `.env` file and creating environment variables in your project!
 
+Some next steps would be to start placing API keys/secrets into the `.env` file and using them throughout my project. What I'm going to do next with the new `.env` file is to setup Google Analytics with my project website. To do that, Google Analytics provides me with a tracking ID that I need to store inside my `.env` file, so that way my tracking ID isn't compromised from a security perspective. 
+
+This is a good introduction to security practices when developing for the web. Ideally, we wouldn't need any protection but we live in a world where others might want to exploit vulnerabilities. 
+
+Thanks for reading and stay safe! 
