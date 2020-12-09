@@ -29,24 +29,30 @@ module.exports = {
         background_color: `#663399`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: 'src/images/space-icon.png'
+        icon: "src/images/space-icon.png",
       },
     },
     {
-      resolve: 'gatsby-plugin-eslint',
+      resolve: "gatsby-plugin-eslint",
       options: {
         test: /\.js$|\.jsx$/,
         exclude: /(node_modules|.cache|public)/,
-        stages: ['develop', 'build-javascript'],
+        stages: ["develop", "build-javascript"],
         options: {
           emitWarning: true,
           emitError: true,
           failOnError: true,
-        }
-      }
-    }
+        },
+      },
+    },
+    {
+      resolve: "gatsby-plugin-google-gtag",
+      options: {
+        trackingIds: [process.env.GA_TRACKING_ID],
+      },
+    },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // 'gatsby-plugin-offline',
   ],
-}
+};
