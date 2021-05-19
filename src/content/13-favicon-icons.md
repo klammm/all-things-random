@@ -13,7 +13,8 @@ In this post, I will talk about:
 * What's so good about Icons?
 * The problem with Icons and Accessibility
 * Accessible Icons
-* Favicons
+* Favicons and Noun Project
+* Gatsby Favicon support
 
 ### What's so good about Icons?
 
@@ -60,4 +61,25 @@ Icons around 40 x 40 pixels is a good standard for the web. Any smaller and it b
 __Honorable Mention__: Use SVG or PNG file format for your icons. 
 
 ### Favicons
+
+Favicons are icons used for websites, tabs, URLs, or web bookmarks. Browsers then use favicons to show the icon on a browser tab or a browser bookmark. Favicons are used to provide a sense of identity to a website, strengthen a certain website's brand, or for pure stylistic reasons.
+
+As a developer, I want to focus my time on creating more features than designing icons, thus I turn to the [Noun Project](https://thenounproject.com/) for free icons for all of my needs. It's all completely free and has a boatload of icons ready to go and use on your website. 
+### Gatsby Favicon Support
+
+Gatsby has a plugin used for easy favicon support. We'll be using the [`gatsby-plugin-manifest`](https://www.gatsbyjs.com/plugins/gatsby-plugin-manifest/). This plugin is used as part of PWA specifications, but we'll be using it for its favicon support. 
+
+Just simply install the plugin: `npm install gatsby-plugin-manifest` and add the plugin into the `gatsby-config.js` file. It should look something like this:
+
+```
+{
+  resolve: `gatsby-plugin-manifest`,
+  options: {
+    // ...options
+    icon: "src/path/to/icons/my-icon.png",
+  },
+},
+```
+
+Once you have that, your favicon should be rendering on your browser and ta-da! You have a new favicon!
 
